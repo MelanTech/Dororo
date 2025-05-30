@@ -1,0 +1,61 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Dororo"
+run/main_scene="uid://gfuvhyo1xjl4"
+config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
+run/max_fps=30
+run/low_processor_mode=true
+boot_splash/bg_color=Color(0, 0, 0, 0)
+boot_splash/show_image=false
+config/icon="uid://b14m03vs8iuxp"
+
+[autoload]
+
+MouseTracker="*res://scripts/cs/MouseTracker.cs"
+Config="*res://scripts/gd/utils/config_manager.gd"
+WindowManager="*res://scripts/cs/WindowManager.cs"
+MouseDetection="*res://scripts/cs/MouseDetection.cs"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=640
+window/size/borderless=true
+window/size/transparent=true
+window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/per_pixel_transparency/allowed=true
+window/vsync/vsync_mode=0
+
+[dotnet]
+
+project/assembly_name="Dororo"
+
+[file_customization]
+
+folder_colors={
+"res://export/": "gray"
+}
+
+[physics]
+
+2d/run_on_separate_thread=true
+3d/run_on_separate_thread=true
+common/physics_ticks_per_second=30
+
+[rendering]
+
+renderer/rendering_method="mobile"
+anti_aliasing/quality/msaa_2d=3
+anti_aliasing/dynamic_fonts/use_oversampling=true

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7crjehg0e81v"]
+
+[ext_resource type="Texture2D" uid="uid://b14m03vs8iuxp" path="res://icon.png" id="1_sjyvh"]
+
+[node name="Setting" type="Node2D"]
+
+[node name="Window" type="Window" parent="."]
+title = "设置"
+initial_position = 1
+size = Vector2i(600, 400)
+borderless = true
+popup_window = true
+
+[node name="Icon" type="Sprite2D" parent="Window"]
+position = Vector2(301, 186)
+scale = Vector2(2.77907, 2.77907)
+texture = ExtResource("1_sjyvh")

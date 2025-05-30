@@ -1,0 +1,86 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Doro.moc3",
+		"Textures": [
+			"Doro.2048/texture_00.png"
+		],
+		"Physics": "Doro.physics3.json",
+		"DisplayInfo": "Doro.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "Idle",
+				"File": "expressions/Exp0.exp3.json"
+			},
+			{
+				"Name": "Sullen",
+				"File": "expressions/Exp1.exp3.json"
+			},
+			{
+				"Name": "Speechless",
+				"File": "expressions/Exp2.exp3.json"
+			},
+			{
+				"Name": "Amaze",
+				"File": "expressions/Exp3.exp3.json"
+			},
+			{
+				"Name": "Doubt",
+				"File": "expressions/Exp4.exp3.json"
+			},
+			{
+				"Name": "Sunglasses",
+				"File": "expressions/Exp5.exp3.json"
+			},
+			{
+				"Name": "Bag",
+				"File": "expressions/Exp6.exp3.json"
+			},
+			{
+				"Name": "Loading",
+				"File": "expressions/Exp7.exp3.json"
+			},
+			{
+				"Name": "StarEye",
+				"File": "expressions/Exp8.exp3.json"
+			},
+			{
+				"Name": "HighlightOff",
+				"File": "expressions/Highlight OFF.exp3.json"
+			},
+			{
+				"Name": "RunningOff",
+				"File": "expressions/Running OFF.exp3.json"
+			},
+			{
+				"Name": "TongueOut",
+				"File": "expressions/TongueOut.exp3.json"
+			}
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	],
+	"HitAreas": [
+		{
+			"Name": "HitAreaLegBack",
+			"Id": "Leg_back_L"
+		},
+		{
+			"Name": "HitAreaFace",
+			"Id": "Face"
+		}
+	]
+}

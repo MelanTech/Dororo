@@ -1,0 +1,72 @@
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://71a443i30mmx"]
+
+[ext_resource type="FontFile" uid="uid://dlfas555fcata" path="res://fonts/MSYHBD.TTC" id="1_0avsd"]
+[ext_resource type="Texture2D" uid="uid://bv4q4q7pslkd7" path="res://images/icons/ui/toolbar/check.png" id="2_78ekx"]
+[ext_resource type="Texture2D" uid="uid://be8hl1oorjp7b" path="res://images/icons/ui/toolbar/check_default.png" id="3_wc0q8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0avsd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wc0q8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7d6gw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wykhr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_78ekx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78ekx"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7d6gw"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wc0q8"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5u3e"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0avsd"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+Button/colors/font_color = Color(0.67069, 0.67069, 0.67069, 1)
+Button/colors/font_focus_color = Color(0.670588, 0.670588, 0.670588, 1)
+Button/colors/font_hover_color = Color(0.913725, 0.596078, 0.733333, 0.501961)
+Button/colors/font_hover_pressed_color = Color(0.913725, 0.596078, 0.733333, 1)
+Button/colors/font_pressed_color = Color(0.914645, 0.597788, 0.733201, 1)
+Button/font_sizes/font_size = 80
+Button/fonts/font = ExtResource("1_0avsd")
+Button/styles/focus = SubResource("StyleBoxEmpty_0avsd")
+Button/styles/hover = SubResource("StyleBoxEmpty_wc0q8")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_7d6gw")
+Button/styles/normal = SubResource("StyleBoxEmpty_wykhr")
+Button/styles/pressed = SubResource("StyleBoxEmpty_78ekx")
+CheckBox/constants/h_separation = 50
+CheckBox/icons/checked = ExtResource("2_78ekx")
+CheckBox/icons/unchecked = ExtResource("3_wc0q8")
+CheckBox/styles/hover = SubResource("StyleBoxFlat_78ekx")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_7d6gw")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_wc0q8")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_k5u3e")
+Panel/styles/panel = SubResource("StyleBoxFlat_0avsd")

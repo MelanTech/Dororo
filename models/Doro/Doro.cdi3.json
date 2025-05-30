@@ -1,0 +1,299 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "Live2Dby0x4682B4",
+			"GroupId": "",
+			"Name": "Live2D by 0x4682B4"
+		},
+		{
+			"Id": "ParamExpEyeHighlights",
+			"GroupId": "",
+			"Name": "ExpEyeHighlights"
+		},
+		{
+			"Id": "ParamExpEyeStar",
+			"GroupId": "",
+			"Name": "ExpEyeStar"
+		},
+		{
+			"Id": "ParamExp1",
+			"GroupId": "",
+			"Name": "ExpExp1"
+		},
+		{
+			"Id": "ParamExp2",
+			"GroupId": "",
+			"Name": "ExpExp2"
+		},
+		{
+			"Id": "ParamExp3",
+			"GroupId": "",
+			"Name": "ExpExp3"
+		},
+		{
+			"Id": "ParamExp4",
+			"GroupId": "",
+			"Name": "ExpExp4"
+		},
+		{
+			"Id": "ParamExp5",
+			"GroupId": "",
+			"Name": "ExpExp5"
+		},
+		{
+			"Id": "ParamExp6",
+			"GroupId": "",
+			"Name": "ExpExp6"
+		},
+		{
+			"Id": "ParamExp7",
+			"GroupId": "",
+			"Name": "ExpExp7"
+		},
+		{
+			"Id": "AnimLine",
+			"GroupId": "",
+			"Name": "AnimLine"
+		},
+		{
+			"Id": "AnimLoading1",
+			"GroupId": "",
+			"Name": "AnimLoading1"
+		},
+		{
+			"Id": "AnimLoading2",
+			"GroupId": "",
+			"Name": "AnimLoading2"
+		},
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "ParamGroup5",
+			"Name": "Angle X"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "ParamGroup5",
+			"Name": "Angle Y"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "ParamGroup5",
+			"Name": "Angle Z"
+		},
+		{
+			"Id": "ParamBodyAngleY",
+			"GroupId": "ParamGroup5",
+			"Name": "Body Y"
+		},
+		{
+			"Id": "ParamBodyAngleZ",
+			"GroupId": "ParamGroup5",
+			"Name": "Body Z"
+		},
+		{
+			"Id": "ParamStep",
+			"GroupId": "ParamGroup5",
+			"Name": "Step"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "ParamGroup5",
+			"Name": "Breath"
+		},
+		{
+			"Id": "ParamBounceInput1",
+			"GroupId": "ParamGroup5",
+			"Name": "Bounce Input 1"
+		},
+		{
+			"Id": "ParamBounceInput2",
+			"GroupId": "ParamGroup5",
+			"Name": "Bounce Input 2"
+		},
+		{
+			"Id": "ParamBounceInput3",
+			"GroupId": "ParamGroup5",
+			"Name": "Bounce Input 3"
+		},
+		{
+			"Id": "ParamBounceInput4",
+			"GroupId": "ParamGroup5",
+			"Name": "Bounce Input 4"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "ParamGroup3",
+			"Name": "EyeL Open"
+		},
+		{
+			"Id": "ParamEyeROpen",
+			"GroupId": "ParamGroup3",
+			"Name": "EyeR Open"
+		},
+		{
+			"Id": "ParamEyeSmile",
+			"GroupId": "ParamGroup3",
+			"Name": "Eye Smile"
+		},
+		{
+			"Id": "ParamEyeAngle",
+			"GroupId": "ParamGroup3",
+			"Name": "EyeAngle"
+		},
+		{
+			"Id": "ParamBrowLY",
+			"GroupId": "ParamGroup3",
+			"Name": "BrowL Y"
+		},
+		{
+			"Id": "ParamBrowRY",
+			"GroupId": "ParamGroup3",
+			"Name": "BrowR Y"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "ParamGroup4",
+			"Name": "Mouth Form"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "ParamGroup4",
+			"Name": "Mouth Open"
+		},
+		{
+			"Id": "ParamTongueOut",
+			"GroupId": "ParamGroup4",
+			"Name": "TongueOut"
+		},
+		{
+			"Id": "ParamMouthX",
+			"GroupId": "ParamGroup4",
+			"Name": "MouthX"
+		},
+		{
+			"Id": "ParamMouthY",
+			"GroupId": "ParamGroup4",
+			"Name": "MouthY"
+		},
+		{
+			"Id": "PhyAngleX",
+			"GroupId": "ParamGroup8",
+			"Name": "Phy Angle X"
+		},
+		{
+			"Id": "PhyAngleY",
+			"GroupId": "ParamGroup8",
+			"Name": "Phy Angle Y"
+		},
+		{
+			"Id": "PhyHairX1",
+			"GroupId": "ParamGroup8",
+			"Name": "Phy Hair X1"
+		},
+		{
+			"Id": "PhyHairX2",
+			"GroupId": "ParamGroup8",
+			"Name": "Phy Hair X2"
+		},
+		{
+			"Id": "PhyHairY1",
+			"GroupId": "ParamGroup8",
+			"Name": "Phy Hair Y1"
+		},
+		{
+			"Id": "PhyHairY2",
+			"GroupId": "ParamGroup8",
+			"Name": "Phy Hair Y2"
+		},
+		{
+			"Id": "PhyIrisR1",
+			"GroupId": "ParamGroup8",
+			"Name": "Phy IrisR 1"
+		},
+		{
+			"Id": "PhyIrisL1",
+			"GroupId": "ParamGroup8",
+			"Name": "Phy IrisL 1"
+		},
+		{
+			"Id": "PhyIrisR2",
+			"GroupId": "ParamGroup8",
+			"Name": "Phy IrisR 2"
+		},
+		{
+			"Id": "PhyIrisL2",
+			"GroupId": "ParamGroup8",
+			"Name": "Phy IrisL 2"
+		},
+		{
+			"Id": "PhyBounce",
+			"GroupId": "ParamGroup8",
+			"Name": "Phy Bounce"
+		}
+	],
+	"ParameterGroups": [
+		{
+			"Id": "ParamGroup5",
+			"GroupId": "",
+			"Name": "Angles"
+		},
+		{
+			"Id": "ParamGroup3",
+			"GroupId": "",
+			"Name": "Facial Expression"
+		},
+		{
+			"Id": "ParamGroup4",
+			"GroupId": "",
+			"Name": "Mouth"
+		},
+		{
+			"Id": "ParamGroup8",
+			"GroupId": "",
+			"Name": "Physics"
+		}
+	],
+	"Parts": [
+		{
+			"Id": "Part",
+			"Name": "Doro.psd (Corresponding layer not found)"
+		},
+		{
+			"Id": "Head_group",
+			"Name": "Head_group"
+		},
+		{
+			"Id": "Body_group",
+			"Name": "Body_group"
+		},
+		{
+			"Id": "Eye_group",
+			"Name": "Eye_group"
+		},
+		{
+			"Id": "Hair_front_group",
+			"Name": "Hair_front_group"
+		},
+		{
+			"Id": "Mouth_group",
+			"Name": "Mouth_group"
+		},
+		{
+			"Id": "Face_group",
+			"Name": "Face_group"
+		},
+		{
+			"Id": "Bow_group",
+			"Name": "Bow_group"
+		},
+		{
+			"Id": "Hair_back_group",
+			"Name": "Hair_back_group"
+		},
+		{
+			"Id": "Ribbon_group",
+			"Name": "Ribbon_group"
+		}
+	]
+}

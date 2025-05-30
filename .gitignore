@@ -1,0 +1,8 @@
+.godot
+.vs
+.vscode
+.idea
+
+/export/
+
+config.ini

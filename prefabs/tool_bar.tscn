@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://cun7rhkorhmln"]
+
+[ext_resource type="Theme" uid="uid://71a443i30mmx" path="res://themes/main.tres" id="1_y8swo"]
+[ext_resource type="Texture2D" uid="uid://cquwbna43xqib" path="res://images/icons/ui/toolbar/bg.png" id="2_0m6uk"]
+[ext_resource type="Script" uid="uid://gson7aujqyrn" path="res://scripts/gd/ui/toolbar/toolbar.gd" id="3_xqmm3"]
+[ext_resource type="Script" uid="uid://yja0ady53gk4" path="res://scripts/gd/ui/toolbar/interact_menu.gd" id="4_88h4x"]
+
+[node name="Toolbar" type="NinePatchRect"]
+anchors_preset = -1
+anchor_left = 0.225
+anchor_right = 0.5
+offset_left = -625.0
+offset_top = 750.0
+offset_right = 680.0
+offset_bottom = 980.0
+grow_horizontal = 2
+theme = ExtResource("1_y8swo")
+texture = ExtResource("2_0m6uk")
+region_rect = Rect2(0, 0, 106, 106)
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+script = ExtResource("3_xqmm3")
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StickButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_y8swo")
+toggle_mode = true
+text = "置顶"
+
+[node name="InteractButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_y8swo")
+toggle_mode = true
+text = "互动"
+
+[node name="InteractMenu" type="Panel" parent="Buttons/InteractButton"]
+visible = false
+z_index = 4096
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.5
+offset_top = -432.0
+offset_right = 288.5
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_y8swo")
+script = ExtResource("4_88h4x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons/InteractButton/InteractMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StrollCheckbox" type="CheckBox" parent="Buttons/InteractButton/InteractMenu/VBoxContainer"]
+layout_mode = 2
+text = "闲逛"
+
+[node name="MouseFollowCheckbox" type="CheckBox" parent="Buttons/InteractButton/InteractMenu/VBoxContainer"]
+layout_mode = 2
+text = "鼠标跟随"
+
+[node name="StatusButton" type="Button" parent="Buttons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_y8swo")
+text = "面板"
+
+[node name="SettingButton" type="Button" parent="Buttons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_y8swo")
+text = "设置"
+
+[node name="ExitButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_y8swo")
+text = "退出"
+
+[connection signal="toggled" from="Buttons/StickButton" to="." method="_on_stick_button_toggled"]
+[connection signal="toggled" from="Buttons/InteractButton" to="Buttons/InteractButton/InteractMenu" method="_on_interact_button_toggled"]
+[connection signal="toggled" from="Buttons/InteractButton/InteractMenu/VBoxContainer/StrollCheckbox" to="." method="_on_stroll_checkbox_toggled"]
+[connection signal="toggled" from="Buttons/InteractButton/InteractMenu/VBoxContainer/MouseFollowCheckbox" to="." method="_on_mouse_follow_checkbox_toggled"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]

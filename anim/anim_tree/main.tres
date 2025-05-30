@@ -1,0 +1,207 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=33 format=3 uid="uid://d3nttjxnggxbs"]
+
+[ext_resource type="AnimationNodeBlendTree" uid="uid://b5akxpfrtapap" path="res://anim/anim_tree/idle.tres" id="1_mbm5g"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://bec14w3rgy7pv" path="res://anim/anim_tree/run.tres" id="2_2m11y"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mbm5g"]
+animation = &"expression/Amaze"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o6dl2"]
+animation = &"expression/bag"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1131j"]
+animation = &"expression/doubt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6lbrb"]
+animation = &"expression/dull"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tiaok"]
+animation = &"expression/dynamic_component"
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_yl736"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_m80x3"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c6pv5"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m80x3"]
+animation = &"expression/eye_blink"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_o6dl2"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hcrsm"]
+animation = &"expression/eye_star"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2m11y"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_64f1m"]
+animation = &"expression/silence"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1mcrg"]
+animation = &"expression/smile_eye_closed"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6nb0m"]
+animation = &"expression/sullen"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tjejw"]
+animation = &"expression/sunglasses"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_48hqd"]
+xfade_time = 0.15
+input_0/name = "Idle"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "SmileEyeClosed"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "Sullen"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+input_3/name = "Silence"
+input_3/auto_advance = false
+input_3/break_loop_at_end = false
+input_3/reset = true
+input_4/name = "Amaze"
+input_4/auto_advance = false
+input_4/break_loop_at_end = false
+input_4/reset = true
+input_5/name = "Bag"
+input_5/auto_advance = false
+input_5/break_loop_at_end = false
+input_5/reset = true
+input_6/name = "Doubt"
+input_6/auto_advance = false
+input_6/break_loop_at_end = false
+input_6/reset = true
+input_7/name = "Dull"
+input_7/auto_advance = false
+input_7/break_loop_at_end = false
+input_7/reset = true
+input_8/name = "EyeStar"
+input_8/auto_advance = false
+input_8/break_loop_at_end = false
+input_8/reset = true
+input_9/name = "Sunglasses"
+input_9/auto_advance = false
+input_9/break_loop_at_end = false
+input_9/reset = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_1131j"]
+graph_offset = Vector2(-73.5531, -109.452)
+nodes/Amaze/node = SubResource("AnimationNodeAnimation_mbm5g")
+nodes/Amaze/position = Vector2(220, 1280)
+nodes/Bag/node = SubResource("AnimationNodeAnimation_o6dl2")
+nodes/Bag/position = Vector2(240.983, 1534.78)
+nodes/Doubt/node = SubResource("AnimationNodeAnimation_1131j")
+nodes/Doubt/position = Vector2(240, 1760)
+nodes/Dull/node = SubResource("AnimationNodeAnimation_6lbrb")
+nodes/Dull/position = Vector2(240, 1940)
+nodes/Dynamic/node = SubResource("AnimationNodeAnimation_tiaok")
+nodes/Dynamic/position = Vector2(1680, 700)
+nodes/DynamicAdd/node = SubResource("AnimationNodeAdd2_yl736")
+nodes/DynamicAdd/position = Vector2(2120, 460)
+nodes/ExpressionAdd/node = SubResource("AnimationNodeAdd2_m80x3")
+nodes/ExpressionAdd/position = Vector2(1717.33, 30.6599)
+nodes/ExpressionIdle/node = SubResource("AnimationNodeAnimation_c6pv5")
+nodes/ExpressionIdle/position = Vector2(300, 340)
+nodes/EyeBlink/node = SubResource("AnimationNodeAnimation_m80x3")
+nodes/EyeBlink/position = Vector2(200, 120)
+nodes/EyeBlinkOneShot/node = SubResource("AnimationNodeOneShot_o6dl2")
+nodes/EyeBlinkOneShot/position = Vector2(580, -120)
+nodes/EyeStar/node = SubResource("AnimationNodeAnimation_hcrsm")
+nodes/EyeStar/position = Vector2(220, 2140)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_2m11y")
+nodes/Idle/position = Vector2(260, -80)
+nodes/Silence/node = SubResource("AnimationNodeAnimation_64f1m")
+nodes/Silence/position = Vector2(220, 1060)
+nodes/SmileEyeClosed/node = SubResource("AnimationNodeAnimation_1mcrg")
+nodes/SmileEyeClosed/position = Vector2(140, 600)
+nodes/Sullen/node = SubResource("AnimationNodeAnimation_6nb0m")
+nodes/Sullen/position = Vector2(240, 840)
+nodes/Sunglasses/node = SubResource("AnimationNodeAnimation_tjejw")
+nodes/Sunglasses/position = Vector2(200, 2360)
+nodes/Transition/node = SubResource("AnimationNodeTransition_48hqd")
+nodes/Transition/position = Vector2(1260, 220)
+nodes/output/position = Vector2(2340, 440)
+node_connections = [&"DynamicAdd", 0, &"ExpressionAdd", &"DynamicAdd", 1, &"Dynamic", &"ExpressionAdd", 0, &"EyeBlinkOneShot", &"ExpressionAdd", 1, &"Transition", &"EyeBlinkOneShot", 0, &"Idle", &"EyeBlinkOneShot", 1, &"EyeBlink", &"Transition", 0, &"ExpressionIdle", &"Transition", 1, &"SmileEyeClosed", &"Transition", 2, &"Sullen", &"Transition", 3, &"Silence", &"Transition", 4, &"Amaze", &"Transition", 5, &"Bag", &"Transition", 6, &"Doubt", &"Transition", 7, &"Dull", &"Transition", 8, &"EyeStar", &"Transition", 9, &"Sunglasses", &"output", 0, &"DynamicAdd"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_mbm5g"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_2m11y"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_48hqd"]
+animation = &"motion/head_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yl736"]
+animation = &"motion/head_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ites6"]
+animation = &"motion/head_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2fxgr"]
+animation = &"motion/head_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0exon"]
+animation = &"motion/head_left_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pn1rx"]
+animation = &"motion/head_right_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7e3ew"]
+animation = &"motion/head_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_38tui"]
+animation = &"motion/head_right_down"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_do4i2"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_48hqd")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_yl736")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_ites6")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_2fxgr")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_0exon")
+blend_point_4/pos = Vector2(-1, 1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_pn1rx")
+blend_point_5/pos = Vector2(1, 1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_7e3ew")
+blend_point_6/pos = Vector2(-1, -1)
+blend_point_7/node = SubResource("AnimationNodeAnimation_38tui")
+blend_point_7/pos = Vector2(1, -1)
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_hcrsm"]
+xfade_time = 0.2
+input_0/name = "Idle"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "Run"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+
+[resource]
+graph_offset = Vector2(-31.3836, 36.5376)
+nodes/Expression/node = SubResource("AnimationNodeBlendTree_1131j")
+nodes/Expression/position = Vector2(280, 560)
+nodes/ExpressionAdd/node = SubResource("AnimationNodeAdd2_mbm5g")
+nodes/ExpressionAdd/position = Vector2(820, 320)
+nodes/HeadAdd/node = SubResource("AnimationNodeAdd2_2m11y")
+nodes/HeadAdd/position = Vector2(1280, 280)
+nodes/HeadControl/node = SubResource("AnimationNodeBlendSpace2D_do4i2")
+nodes/HeadControl/position = Vector2(1040, 500)
+nodes/Idle/node = ExtResource("1_mbm5g")
+nodes/Idle/position = Vector2(280, 220)
+nodes/MotonTransition/node = SubResource("AnimationNodeTransition_hcrsm")
+nodes/MotonTransition/position = Vector2(580, 240)
+nodes/Run/node = ExtResource("2_2m11y")
+nodes/Run/position = Vector2(280, 380)
+nodes/output/position = Vector2(1580, 280)
+node_connections = [&"ExpressionAdd", 0, &"MotonTransition", &"ExpressionAdd", 1, &"Expression", &"HeadAdd", 0, &"ExpressionAdd", &"HeadAdd", 1, &"HeadControl", &"MotonTransition", 0, &"Idle", &"MotonTransition", 1, &"Run", &"output", 0, &"HeadAdd"]

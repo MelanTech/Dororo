@@ -1,0 +1,11 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=2 format=3 uid="uid://b5akxpfrtapap"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tiaok"]
+animation = &"motion/idle"
+
+[resource]
+graph_offset = Vector2(-102.845, 18.7531)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_tiaok")
+nodes/Idle/position = Vector2(400, 160)
+nodes/output/position = Vector2(700, 160)
+node_connections = [&"output", 0, &"Idle"]

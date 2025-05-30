@@ -1,0 +1,350 @@
+[gd_scene load_steps=35 format=3 uid="uid://gfuvhyo1xjl4"]
+
+[ext_resource type="Script" uid="uid://bq5jct0umnoci" path="res://scripts/gd/interact/window.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://c2wvqwfnqa3u2" path="res://scripts/gd/attributes/model.gd" id="2_o6xl0"]
+[ext_resource type="Script" uid="uid://dbn2jhsak0hwb" path="res://scripts/gd/anim/anim_controller.gd" id="3_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://cyk1dyk06dcnd" path="res://images/icons/particle/glint.png" id="3_tipki"]
+[ext_resource type="Script" uid="uid://bri3vn5pspsi2" path="res://scripts/gd/anim/eye_blink.gd" id="4_0ld40"]
+[ext_resource type="Script" uid="uid://bvucecetwdshi" path="res://scripts/gd/anim/rand_move.gd" id="4_jscy8"]
+[ext_resource type="PackedScene" uid="uid://ds5lu7v53sebb" path="res://prefabs/tray.tscn" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://na4yb7kbl3kf" path="res://scripts/gd/anim/mouse_follow.gd" id="4_yc10j"]
+[ext_resource type="Script" uid="uid://1msy678q0bqk" path="res://scripts/gd/anim/touch.gd" id="5_gqmmt"]
+[ext_resource type="Animation" uid="uid://pxtbljopfqfp" path="res://anim/motion/idle.res" id="7_ya4ey"]
+[ext_resource type="AnimationLibrary" uid="uid://b65uvc584nsx" path="res://anim/expression.res" id="7_yc10j"]
+[ext_resource type="Animation" uid="uid://bb0ycu28uso17" path="res://anim/motion/run.res" id="8_eb6dy"]
+[ext_resource type="Animation" uid="uid://dmweo0rigp8v4" path="res://anim/motion/head_up.res" id="9_jkv2x"]
+[ext_resource type="Animation" uid="uid://4rxpubx3cu8t" path="res://anim/motion/head_down.res" id="10_jbj1t"]
+[ext_resource type="Animation" uid="uid://cjrqb3pqf8ehp" path="res://anim/motion/head_left_up.res" id="11_gqmmt"]
+[ext_resource type="Animation" uid="uid://psodookd5gwl" path="res://anim/motion/head_left.res" id="11_muem4"]
+[ext_resource type="Animation" uid="uid://q4ebxija1jr7" path="res://anim/motion/head_right.res" id="12_dp3eg"]
+[ext_resource type="Animation" uid="uid://b6iipw6py2247" path="res://anim/motion/head_left_down.res" id="12_yc10j"]
+[ext_resource type="Animation" uid="uid://4tgpixkcwv1b" path="res://anim/motion/head_right_up.res" id="13_jscy8"]
+[ext_resource type="Animation" uid="uid://i5t1qhnbveql" path="res://anim/motion/head_right_down.res" id="14_pm3ni"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://d3nttjxnggxbs" path="res://anim/anim_tree/main.tres" id="17_y6deb"]
+[ext_resource type="Texture2D" uid="uid://dllyoqio0yr7r" path="res://images/icons/particle/heart.svg" id="21_og1vs"]
+[ext_resource type="Script" uid="uid://dq47pxgsd8bqq" path="res://scripts/gd/anim/hit_area_handler.gd" id="21_pm3ni"]
+[ext_resource type="Script" uid="uid://dp1nh8pm67yer" path="res://scripts/gd/ui/gui.gd" id="24_2wyq8"]
+[ext_resource type="PackedScene" uid="uid://cun7rhkorhmln" path="res://prefabs/tool_bar.tscn" id="25_og1vs"]
+
+[sub_resource type="Animation" id="Animation_jscy8"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:ParamEyeROpen")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:ParamEyeLOpen")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:AnimLoading2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:AnimLoading1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:AnimLine")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:ParamExpEyeHighlights")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_og1vs"]
+_data = {
+&"RESET": SubResource("Animation_jscy8")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2wyq8"]
+_data = {
+&"head_down": ExtResource("10_jbj1t"),
+&"head_left": ExtResource("11_muem4"),
+&"head_left_down": ExtResource("12_yc10j"),
+&"head_left_up": ExtResource("11_gqmmt"),
+&"head_right": ExtResource("12_dp3eg"),
+&"head_right_down": ExtResource("14_pm3ni"),
+&"head_right_up": ExtResource("13_jscy8"),
+&"head_up": ExtResource("9_jkv2x"),
+&"idle": ExtResource("7_ya4ey"),
+&"run": ExtResource("8_eb6dy")
+}
+
+[sub_resource type="Curve" id="Curve_o6xl0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.807843, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -10.2288, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tipki"]
+curve = SubResource("Curve_o6xl0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_85g3d"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 600.0
+emission_ring_inner_radius = 400.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+gravity = Vector3(0, -128, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = -2.23517e-06
+scale_max = 3.0
+alpha_curve = SubResource("CurveTexture_tipki")
+
+[sub_resource type="Curve" id="Curve_85g3d"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.745098, 1), -6.20375e-07, -6.20375e-07, 0, 0, Vector2(1, 0), -5.94279, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_choun"]
+curve = SubResource("Curve_85g3d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ya4ey"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 600.0
+emission_ring_inner_radius = 200.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+alpha_curve = SubResource("CurveTexture_choun")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_o5qli")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.3, 0.3)
+
+[node name="GDCubismUserModel" type="GDCubismUserModel" parent="."]
+assets = "res://models/Doro/Doro.model3.json"
+parameter_mode = 1
+speed_scale = 2.0
+anim_loop = true
+anim_loop_fade_in = true
+anim_expression = "Idle"
+anim_motion = "Idle_0"
+Live2Dby0x4682B4 = 0.0
+ParamExpEyeHighlights = 1.0
+ParamExpEyeStar = 0.0
+ParamExp1 = 0.0
+ParamExp2 = 0.0
+ParamExp3 = 0.0
+ParamExp4 = 0.0
+ParamExp5 = 0.0
+ParamExp6 = 0.0
+ParamExp7 = 0.0
+AnimLine = 1.0
+AnimLoading1 = 0.0
+AnimLoading2 = 1.0
+ParamAngleX = 8.03247
+ParamAngleY = -5.9445
+ParamAngleZ = 2.4651
+ParamBodyAngleY = 0.0
+ParamBodyAngleZ = 0.0
+ParamStep = 0.0
+ParamBreath = 0.00463284
+ParamBounceInput1 = 0.0
+ParamBounceInput2 = 0.0
+ParamBounceInput3 = 0.0
+ParamBounceInput4 = 0.0
+ParamEyeLOpen = 1.0
+ParamEyeROpen = 1.0
+ParamEyeSmile = 0.0
+ParamEyeAngle = 0.0
+ParamBrowLY = 0.0
+ParamBrowRY = 0.0
+ParamMouthForm = 0.0
+ParamMouthOpenY = 0.0
+ParamTongueOut = 0.0
+ParamMouthX = 0.0
+ParamMouthY = 0.0
+PhyAngleX = 0.0202645
+PhyAngleY = -0.0473628
+PhyHairX1 = 0.0491426
+PhyHairX2 = -0.00576558
+PhyHairY1 = -0.0868385
+PhyHairY2 = -0.000777095
+PhyIrisR1 = 0.0
+PhyIrisL1 = 0.0
+PhyIrisR2 = 0.0
+PhyIrisL2 = 0.0
+PhyBounce = 0.0
+Part = 1.0
+Head_group = 1.0
+Body_group = 1.0
+Eye_group = 1.0
+Hair_front_group = 1.0
+Mouth_group = 1.0
+Face_group = 1.0
+Bow_group = 1.0
+Hair_back_group = 1.0
+Ribbon_group = 1.0
+script = ExtResource("2_o6xl0")
+
+[node name="Animation" type="Node" parent="GDCubismUserModel" node_paths=PackedStringArray("anim_tree")]
+script = ExtResource("3_dp3eg")
+anim_tree = NodePath("AnimationTree")
+
+[node name="EffectRandMove" type="Node" parent="GDCubismUserModel/Animation" node_paths=PackedStringArray("window", "model", "controller")]
+script = ExtResource("4_jscy8")
+window = NodePath("../../..")
+model = NodePath("../..")
+controller = NodePath("..")
+
+[node name="EffectMouseFollow" type="Node" parent="GDCubismUserModel/Animation" node_paths=PackedStringArray("model", "controller")]
+script = ExtResource("4_yc10j")
+model = NodePath("../..")
+controller = NodePath("..")
+smooth_factor = 0.2
+
+[node name="EffectEyeBlink" type="Node" parent="GDCubismUserModel/Animation" node_paths=PackedStringArray("controller")]
+script = ExtResource("4_0ld40")
+controller = NodePath("..")
+blink_interval = 3.0
+
+[node name="EffectTouch" type="Node" parent="GDCubismUserModel/Animation" node_paths=PackedStringArray("controller", "model", "particle")]
+script = ExtResource("5_gqmmt")
+controller = NodePath("..")
+model = NodePath("../..")
+particle = NodePath("../../../Particles/HeartParticles2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GDCubismUserModel/Animation"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_og1vs"),
+&"expression": ExtResource("7_yc10j"),
+&"motion": SubResource("AnimationLibrary_2wyq8")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="GDCubismUserModel/Animation"]
+root_node = NodePath("../..")
+tree_root = ExtResource("17_y6deb")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Expression/DynamicAdd/add_amount = 1.0
+parameters/Expression/ExpressionAdd/add_amount = 1.0
+parameters/Expression/EyeBlinkOneShot/active = false
+parameters/Expression/EyeBlinkOneShot/internal_active = false
+parameters/Expression/EyeBlinkOneShot/request = 0
+parameters/Expression/Transition/current_state = "Idle"
+parameters/Expression/Transition/transition_request = ""
+parameters/Expression/Transition/current_index = 0
+parameters/ExpressionAdd/add_amount = 1.0
+parameters/HeadAdd/add_amount = 0.8
+parameters/HeadControl/blend_position = Vector2(0, 0)
+parameters/MotonTransition/current_state = "Idle"
+parameters/MotonTransition/transition_request = ""
+parameters/MotonTransition/current_index = 0
+
+[node name="HitAreaHandler" type="GDCubismEffectHitArea" parent="GDCubismUserModel" node_paths=PackedStringArray("model", "root")]
+script = ExtResource("21_pm3ni")
+model = NodePath("..")
+root = NodePath("../..")
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="HeartParticles2D" type="GPUParticles2D" parent="Particles"]
+z_index = 80
+emitting = false
+amount = 4
+texture = ExtResource("21_og1vs")
+lifetime = 2.0
+use_fixed_seed = true
+seed = 2760725378
+fixed_fps = 10
+fract_delta = false
+collision_base_size = 0.0
+visibility_rect = Rect2(-200, -200, 400, 400)
+trail_lifetime = 0.74
+process_material = SubResource("ParticleProcessMaterial_85g3d")
+metadata/_edit_lock_ = true
+
+[node name="UpgradeParticles2D" type="GPUParticles2D" parent="Particles"]
+z_index = 80
+emitting = false
+amount = 6
+texture = ExtResource("3_tipki")
+lifetime = 2.0
+use_fixed_seed = true
+seed = 2760725378
+fixed_fps = 10
+fract_delta = false
+collision_base_size = 0.0
+visibility_rect = Rect2(-200, -200, 400, 400)
+trail_lifetime = 0.74
+process_material = SubResource("ParticleProcessMaterial_ya4ey")
+metadata/_edit_lock_ = true
+
+[node name="StatusIndicator" parent="." instance=ExtResource("4_jyhfs")]
+
+[node name="GUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("24_2wyq8")
+
+[node name="Toolbar" parent="GUI" instance=ExtResource("25_og1vs")]
+layout_mode = 1
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = -635.0
+offset_top = 741.0
+offset_right = 670.0
+offset_bottom = 971.0
+grow_horizontal = 1
+
+[connection signal="window_middle_click" from="." to="GUI" method="_on_window_middle_click"]
+[connection signal="hit" from="GDCubismUserModel/HitAreaHandler" to="GDCubismUserModel/Animation/EffectTouch" method="_on_hit_area"]
+[connection signal="hit_area_entered" from="GDCubismUserModel/HitAreaHandler" to="GDCubismUserModel/HitAreaHandler" method="_on_hit_area_entered"]

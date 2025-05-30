@@ -1,0 +1,11 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=2 format=3 uid="uid://bec14w3rgy7pv"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dw3qq"]
+animation = &"motion/run"
+
+[resource]
+graph_offset = Vector2(-89.9024, -15.2491)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_dw3qq")
+nodes/Animation/position = Vector2(600, 200)
+nodes/output/position = Vector2(860, 180)
+node_connections = [&"output", 0, &"Animation"]
