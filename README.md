@@ -1,5 +1,5 @@
-![](./assets/head.png)
-<h1 style="text-align: center; margin-top: -30px;">Dororo</h1>
+<div align="center"><img src="./assets/head.png"></div>
+<h1 style="text-align: center; margin-top: -10px;">Dororo</h1>
 <p style="text-align: center;">一款基于Godot的开源桌面宠物项目</p>
 
 Dororo是一款基于Godot的开源桌面宠物项目，其灵感来源于游戏《NIKKE：胜利女神》中的角色桃乐丝（Dorothy）。这个可爱的Q版生物形象源自近期网络上广为流传的一个流行Meme，它以一种幽默而独特的方式重新诠释了原角色。
