@@ -6,6 +6,7 @@ public partial class MouseDetection : Node
 	// Autoloaded
 	
 	private WindowManager _api;
+	public bool mouse_hovered = false;
 	
 
 	public override void _Ready()
@@ -49,7 +50,11 @@ public partial class MouseDetection : Node
 		if (x < img.GetSize().X && x>=0 && y < img.GetSize().Y && y>=0)
 		{
 			Color pixel = img.GetPixel(x, y);
-			SetClickability(pixel.A > 0.5f); 
+			SetClickability(pixel.A > 0.5f);
+			mouse_hovered = true;
+		}
+		else{
+			mouse_hovered = false;
 		}
 
 		// Very important to dispose the rendered image or will bloat memory !!!!!

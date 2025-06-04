@@ -25,6 +25,7 @@ MouseTracker="*res://scripts/cs/MouseTracker.cs"
 Config="*res://scripts/gd/utils/config_manager.gd"
 WindowManager="*res://scripts/cs/WindowManager.cs"
 MouseDetection="*res://scripts/cs/MouseDetection.cs"
+AutoStarter="*res://scripts/cs/AutoStarter.cs"
 
 [display]
 

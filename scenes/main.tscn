@@ -162,8 +162,10 @@ gravity = Vector3(0, 0, 0)
 scale_max = 2.0
 alpha_curve = SubResource("CurveTexture_choun")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("model", "anim_controller")]
 script = ExtResource("1_o5qli")
+model = NodePath("GDCubismUserModel")
+anim_controller = NodePath("GDCubismUserModel/Animation")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.3, 0.3)
@@ -189,13 +191,13 @@ ParamExp7 = 0.0
 AnimLine = 1.0
 AnimLoading1 = 0.0
 AnimLoading2 = 1.0
-ParamAngleX = 8.03247
-ParamAngleY = -5.9445
-ParamAngleZ = 2.4651
+ParamAngleX = 0.162229
+ParamAngleY = 0.160135
+ParamAngleZ = -3.3002
 ParamBodyAngleY = 0.0
 ParamBodyAngleZ = 0.0
 ParamStep = 0.0
-ParamBreath = 0.00463284
+ParamBreath = 0.500486
 ParamBounceInput1 = 0.0
 ParamBounceInput2 = 0.0
 ParamBounceInput3 = 0.0
@@ -211,12 +213,12 @@ ParamMouthOpenY = 0.0
 ParamTongueOut = 0.0
 ParamMouthX = 0.0
 ParamMouthY = 0.0
-PhyAngleX = 0.0202645
-PhyAngleY = -0.0473628
-PhyHairX1 = 0.0491426
-PhyHairX2 = -0.00576558
-PhyHairY1 = -0.0868385
-PhyHairY2 = -0.000777095
+PhyAngleX = -0.0244924
+PhyAngleY = 0.000543615
+PhyHairX1 = -0.0616845
+PhyHairX2 = 0.00564175
+PhyHairY1 = -0.0021656
+PhyHairY2 = -0.00244202
 PhyIrisR1 = 0.0
 PhyIrisL1 = 0.0
 PhyIrisR2 = 0.0
@@ -330,13 +332,13 @@ metadata/_edit_lock_ = true
 [node name="StatusIndicator" parent="." instance=ExtResource("4_jyhfs")]
 
 [node name="GUI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("24_2wyq8")
 
 [node name="Toolbar" parent="GUI" instance=ExtResource("25_og1vs")]
 layout_mode = 1
+anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
 offset_left = -635.0
@@ -344,7 +346,14 @@ offset_top = 741.0
 offset_right = 670.0
 offset_bottom = 971.0
 grow_horizontal = 1
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
 
+[connection signal="window_docking" from="." to="GDCubismUserModel/Animation/EffectMouseFollow" method="_on_window_docking"]
+[connection signal="window_docking" from="." to="GUI" method="_on_window_docking"]
 [connection signal="window_middle_click" from="." to="GUI" method="_on_window_middle_click"]
 [connection signal="hit" from="GDCubismUserModel/HitAreaHandler" to="GDCubismUserModel/Animation/EffectTouch" method="_on_hit_area"]
 [connection signal="hit_area_entered" from="GDCubismUserModel/HitAreaHandler" to="GDCubismUserModel/HitAreaHandler" method="_on_hit_area_entered"]

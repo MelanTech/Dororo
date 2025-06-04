@@ -188,7 +188,7 @@ input_1/break_loop_at_end = false
 input_1/reset = true
 
 [resource]
-graph_offset = Vector2(-31.3836, 36.5376)
+graph_offset = Vector2(365.995, 107.861)
 nodes/Expression/node = SubResource("AnimationNodeBlendTree_1131j")
 nodes/Expression/position = Vector2(280, 560)
 nodes/ExpressionAdd/node = SubResource("AnimationNodeAdd2_mbm5g")
@@ -203,5 +203,5 @@ nodes/MotonTransition/node = SubResource("AnimationNodeTransition_hcrsm")
 nodes/MotonTransition/position = Vector2(580, 240)
 nodes/Run/node = ExtResource("2_2m11y")
 nodes/Run/position = Vector2(280, 380)
-nodes/output/position = Vector2(1580, 280)
+nodes/output/position = Vector2(1520, 380)
 node_connections = [&"ExpressionAdd", 0, &"MotonTransition", &"ExpressionAdd", 1, &"Expression", &"HeadAdd", 0, &"ExpressionAdd", &"HeadAdd", 1, &"HeadControl", &"MotonTransition", 0, &"Idle", &"MotonTransition", 1, &"Run", &"output", 0, &"HeadAdd"]

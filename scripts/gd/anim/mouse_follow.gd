@@ -10,7 +10,7 @@ extends Node
 var _current_pos:Vector2 = Vector2.ZERO
 
 func _process(delta: float) -> void:
-	if enable:
+	if enable and not $"../../..".docking:
 		var screen_mouse_pos = mouseTracker.GetMousePositionGlobal()
 		var window_center = get_tree().root.get_position() + (get_tree().root.get_size() / 2)
 		var relative_pos = Vector2(window_center - screen_mouse_pos)

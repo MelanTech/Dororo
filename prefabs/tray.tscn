@@ -12,12 +12,16 @@ menu = NodePath("PopupMenu")
 [node name="PopupMenu" type="PopupMenu" parent="."]
 theme_override_icons/checked = ExtResource("2_21mwk")
 hide_on_checkable_item_selection = false
-item_count = 2
+item_count = 3
 item_0/text = "隐藏"
 item_0/checkable = 1
 item_0/id = 0
-item_1/text = "退出"
+item_1/text = "开机自启"
+item_1/checkable = 1
 item_1/id = 1
+item_2/text = "退出"
+item_2/id = 2
 script = ExtResource("2_6bidj")
 
+[connection signal="pressed" from="." to="PopupMenu" method="_on_status_indicator_pressed"]
 [connection signal="id_pressed" from="PopupMenu" to="PopupMenu" method="_on_item_pressed"]

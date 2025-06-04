@@ -20,6 +20,9 @@ public partial class WindowManager : Node
 	[DllImport("user32.dll")]
 	[return: MarshalAs(UnmanagedType.Bool)]
 	private static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
+	
+	[DllImport("user32.dll")]
+	private static extern int GetSystemMetrics(int nIndex);
 
 	private struct RECT
 	{

@@ -19,7 +19,7 @@ func _ready() -> void:
 	timer.start()
 	
 func _process(delta: float) -> void:
-	var ok_to_move = enable and not window.dragging
+	var ok_to_move = enable and not window.dragging and not window.docking
 	timer.set_paused(!ok_to_move)
 	
 func _start_random_movement():
