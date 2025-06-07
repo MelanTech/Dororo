@@ -24,11 +24,16 @@ func _process(delta):
 		set_target(recalc_mouse_position(local_pos))
 		
 func recalc_mouse_position(position):
+	if model.flip_h:
+		position.x = -position.x
+	
 	if canvas_info.is_empty() != true:
 		var vct_viewport_size = Vector2(root.get_viewport_rect().size)
 		var scale: float = vct_viewport_size.y / max(canvas_info.size_in_pixels.x, canvas_info.size_in_pixels.y)
 		position -= vct_viewport_size / 2.0
 		position /= Vector2(scale, scale)
+		if model.flip_h:
+			position.x = -position.x
 		
 	return position
 
