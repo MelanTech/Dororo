@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeBlendTree" load_steps=33 format=3 uid="uid://d3nttjxnggxbs"]
+[gd_resource type="AnimationNodeBlendTree" load_steps=34 format=3 uid="uid://d3nttjxnggxbs"]
 
 [ext_resource type="AnimationNodeBlendTree" uid="uid://b5akxpfrtapap" path="res://anim/anim_tree/idle.tres" id="1_mbm5g"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://bec14w3rgy7pv" path="res://anim/anim_tree/run.tres" id="2_2m11y"]
@@ -8,6 +8,9 @@ animation = &"expression/Amaze"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o6dl2"]
 animation = &"expression/bag"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_do4i2"]
+animation = &"expression/dock_pop_angry"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1131j"]
 animation = &"expression/doubt"
@@ -90,13 +93,19 @@ input_9/name = "Sunglasses"
 input_9/auto_advance = false
 input_9/break_loop_at_end = false
 input_9/reset = true
+input_10/name = "DockPopAngry"
+input_10/auto_advance = false
+input_10/break_loop_at_end = false
+input_10/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_1131j"]
-graph_offset = Vector2(-73.5531, -109.452)
+graph_offset = Vector2(-293.066, 48.323)
 nodes/Amaze/node = SubResource("AnimationNodeAnimation_mbm5g")
 nodes/Amaze/position = Vector2(220, 1280)
 nodes/Bag/node = SubResource("AnimationNodeAnimation_o6dl2")
 nodes/Bag/position = Vector2(240.983, 1534.78)
+nodes/DockPopAngry/node = SubResource("AnimationNodeAnimation_do4i2")
+nodes/DockPopAngry/position = Vector2(180, 2560)
 nodes/Doubt/node = SubResource("AnimationNodeAnimation_1131j")
 nodes/Doubt/position = Vector2(240, 1760)
 nodes/Dull/node = SubResource("AnimationNodeAnimation_6lbrb")
@@ -128,7 +137,7 @@ nodes/Sunglasses/position = Vector2(200, 2360)
 nodes/Transition/node = SubResource("AnimationNodeTransition_48hqd")
 nodes/Transition/position = Vector2(1260, 220)
 nodes/output/position = Vector2(2340, 440)
-node_connections = [&"DynamicAdd", 0, &"ExpressionAdd", &"DynamicAdd", 1, &"Dynamic", &"ExpressionAdd", 0, &"EyeBlinkOneShot", &"ExpressionAdd", 1, &"Transition", &"EyeBlinkOneShot", 0, &"Idle", &"EyeBlinkOneShot", 1, &"EyeBlink", &"Transition", 0, &"ExpressionIdle", &"Transition", 1, &"SmileEyeClosed", &"Transition", 2, &"Sullen", &"Transition", 3, &"Silence", &"Transition", 4, &"Amaze", &"Transition", 5, &"Bag", &"Transition", 6, &"Doubt", &"Transition", 7, &"Dull", &"Transition", 8, &"EyeStar", &"Transition", 9, &"Sunglasses", &"output", 0, &"DynamicAdd"]
+node_connections = [&"DynamicAdd", 0, &"ExpressionAdd", &"DynamicAdd", 1, &"Dynamic", &"ExpressionAdd", 0, &"EyeBlinkOneShot", &"ExpressionAdd", 1, &"Transition", &"EyeBlinkOneShot", 0, &"Idle", &"EyeBlinkOneShot", 1, &"EyeBlink", &"Transition", 0, &"ExpressionIdle", &"Transition", 1, &"SmileEyeClosed", &"Transition", 2, &"Sullen", &"Transition", 3, &"Silence", &"Transition", 4, &"Amaze", &"Transition", 5, &"Bag", &"Transition", 6, &"Doubt", &"Transition", 7, &"Dull", &"Transition", 8, &"EyeStar", &"Transition", 9, &"Sunglasses", &"Transition", 10, &"DockPopAngry", &"output", 0, &"DynamicAdd"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_mbm5g"]
 
@@ -188,7 +197,7 @@ input_1/break_loop_at_end = false
 input_1/reset = true
 
 [resource]
-graph_offset = Vector2(365.995, 107.861)
+graph_offset = Vector2(-200.398, 303.684)
 nodes/Expression/node = SubResource("AnimationNodeBlendTree_1131j")
 nodes/Expression/position = Vector2(280, 560)
 nodes/ExpressionAdd/node = SubResource("AnimationNodeAdd2_mbm5g")

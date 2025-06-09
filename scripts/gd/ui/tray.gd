@@ -16,7 +16,8 @@ func _ready() -> void:
 func _on_status_indicator_pressed(mouse_button: int, mouse_position: Vector2i) -> void:
 	# 左键点击托盘图标召回窗口
 	if mouse_button == MOUSE_BUTTON_LEFT:
-		get_tree().root.position = Vector2i.ZERO
+		get_tree().root.get_window().move_to_center()
+		get_tree().current_scene.update_window_size()
 
 func _on_item_pressed(id: int) -> void:
 	if id == ID_HIDE:
@@ -34,6 +35,7 @@ func _on_item_pressed(id: int) -> void:
 	elif id == ID_EXIT:
 		get_tree().quit()
 
+# BUG: 与其他软件冲突，暂时弃用
 func _on_other_app_fullscreen(is_fullscreen):
 	if is_fullscreen:
 		if is_item_checked(ID_HIDE):

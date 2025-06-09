@@ -17,7 +17,7 @@ run/max_fps=30
 run/low_processor_mode=true
 boot_splash/bg_color=Color(0, 0, 0, 0)
 boot_splash/show_image=false
-config/icon="uid://b14m03vs8iuxp"
+config/icon="uid://dbgr0uu8hus3f"
 
 [autoload]
 
@@ -58,5 +58,4 @@ common/physics_ticks_per_second=30
 [rendering]
 
 renderer/rendering_method="mobile"
-anti_aliasing/quality/msaa_2d=3
 anti_aliasing/dynamic_fonts/use_oversampling=true

@@ -8,6 +8,12 @@ public partial class MouseDetection : Node
 	private WindowManager _api;
 	public bool mouse_hovered = false;
 	
+	[Signal]
+	public delegate void MouseEnteredEventHandler();
+	
+	[Signal]
+	public delegate void MouseExitedEventHandler();
+	
 
 	public override void _Ready()
 	{
@@ -51,9 +57,13 @@ public partial class MouseDetection : Node
 		{
 			Color pixel = img.GetPixel(x, y);
 			SetClickability(pixel.A > 0.5f);
+			
+			if (!mouse_hovered) EmitSignal(SignalName.MouseEntered);
 			mouse_hovered = true;
 		}
 		else{
+			if(mouse_hovered) EmitSignal(SignalName.MouseExited);
+				
 			mouse_hovered = false;
 		}
 

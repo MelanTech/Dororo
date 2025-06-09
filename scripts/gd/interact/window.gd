@@ -7,6 +7,7 @@ extends Node2D
 @export var dock_thresh:float = 0.3
 @export var dock_offset:float = -0.1
 @export var dock_pop_offset:int = 380
+@export var dock_pop_expression_reset_time:float = 30
 
 const STEP_SIZE = 0.05
 const MIN_SCALE = 0.1
@@ -23,11 +24,14 @@ const DOCK_NONE = 2
 
 var dragging: bool = false
 var docking: bool = false
-var docking_dir: int = DOCK_NONE 
+var docking_dir: int = DOCK_NONE
+var docking_time_counter:TimeCounter = TimeCounter.new(dock_pop_expression_reset_time)
 
 var window_scale: float = 1.0
 var drag_start_mouse_pos: Vector2i
 var drag_start_window_pos: Vector2i
+
+var is_other_app_fullscreen = false
 
 signal window_scale_changed
 signal window_pos_changed
@@ -38,8 +42,11 @@ signal window_docking
 func _ready() -> void:
 	load_config()
 	bind_signals()
-	set_up_fullscreen_detector()
+	#set_up_fullscreen_detector()  # BUG: 暂时不开启
 	update_window_size()
+	
+	add_child(docking_time_counter)
+	mouseDetection.connect("MouseEntered", docking_time_counter.increase)
 	
 func _physics_process(delta: float) -> void:
 	dock_pop()
@@ -107,13 +114,13 @@ func load_config():
 func bind_signals():
 	window_scale_changed.connect(config.on_window_config_change)
 	window_pos_changed.connect(config.on_window_config_change)
-	other_app_fullscreen.connect($StatusIndicator/PopupMenu._on_other_app_fullscreen)
+	other_app_fullscreen.connect($GUI/Toolbar._on_other_app_fullscreen)
 
 func set_up_fullscreen_detector():
 	var timer = Timer.new()
 	timer.process_mode = Node.PROCESS_MODE_ALWAYS
 	timer.wait_time = 0.5
-	timer.timeout.connect(_on_other_app_fullscreen)
+	timer.timeout.connect(_check_other_app_fullscreen)
 	add_child(timer)
 	timer.start()
 	
@@ -147,6 +154,7 @@ func dock_to_edge(window_rect: Rect2i, thresh: float, offset: float):
 		docking_dir = DOCK_NONE
 		window_docking.emit(false, DOCK_NONE)
 		anim_controller.set_expression("Idle")
+		docking_time_counter.reset()
 		return window_rect.position
 
 func dock_pop():
@@ -156,13 +164,21 @@ func dock_pop():
 				model.position.x = dock_pop_offset
 			elif docking_dir == DOCK_RIGHT:
 				model.position.x = -dock_pop_offset
-				
-			anim_controller.set_expression("Doubt")
+			
+			var count = docking_time_counter.get_count()
+			if count >= 6:
+				anim_controller.set_expression("DockPopAngry")
+			elif count >= 3:
+				anim_controller.set_expression("Doubt")
 		else:
 			anim_controller.set_expression("Idle")
 			model.position.x = 0
 	else:
 		model.position.x = 0
-
-func _on_other_app_fullscreen():
-	other_app_fullscreen.emit(windowManager.IsOtherAppFullscreen())
+		
+func _check_other_app_fullscreen():
+	var state = windowManager.IsOtherAppFullscreen()
+	if state != is_other_app_fullscreen:
+		other_app_fullscreen.emit(state)
+	is_other_app_fullscreen = state
+	

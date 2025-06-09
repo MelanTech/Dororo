@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ds5lu7v53sebb"]
 
-[ext_resource type="Texture2D" uid="uid://b14m03vs8iuxp" path="res://icon.png" id="1_21mwk"]
+[ext_resource type="Texture2D" uid="uid://dbgr0uu8hus3f" path="res://icon.png" id="1_21mwk"]
 [ext_resource type="Script" uid="uid://b25i5jdhmr6sa" path="res://scripts/gd/ui/tray.gd" id="2_6bidj"]
 [ext_resource type="Texture2D" uid="uid://ple7hfog1nok" path="res://images/icons/ui/checkmark.png" id="2_21mwk"]
 
