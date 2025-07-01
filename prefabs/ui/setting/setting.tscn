@@ -1,0 +1,310 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7crjehg0e81v"]
+
+[ext_resource type="Texture2D" uid="uid://b1x0h5ke4edr4" path="res://images/icons/ui/settings/bg_sharp.png" id="1_044ml"]
+[ext_resource type="Theme" uid="uid://djmv4w4gt1hm6" path="res://themes/settings.tres" id="1_nmrls"]
+[ext_resource type="PackedScene" uid="uid://dkq4fyfppmif4" path="res://prefabs/ui/setting/title_bar.tscn" id="3_fstt7"]
+[ext_resource type="Script" uid="uid://cpq2sxd3y37an" path="res://scripts/gd/ui/setting/setting_system.gd" id="6_4o1i3"]
+[ext_resource type="FontFile" uid="uid://cxesm3f1vqnpc" path="res://fonts/MSYH.TTC" id="6_fstt7"]
+[ext_resource type="Script" uid="uid://eok0mgqqko80" path="res://scripts/gd/ui/setting/setting_display.gd" id="6_vl6pt"]
+[ext_resource type="Script" uid="uid://ckjlbq2w68m2k" path="res://scripts/gd/ui/setting/setting_interact.gd" id="7_4o1i3"]
+[ext_resource type="PackedScene" uid="uid://ixxkmbsfe02a" path="res://prefabs/ui/setting/update_message_box.tscn" id="9_4o1i3"]
+[ext_resource type="Script" uid="uid://dtydvg1uq05r6" path="res://scripts/gd/ui/setting/setting_about.gd" id="9_10ofc"]
+
+[node name="NinePatchRect" type="NinePatchRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nmrls")
+texture = ExtResource("1_044ml")
+region_rect = Rect2(0, 0, 106, 106)
+patch_margin_left = 25
+patch_margin_top = 25
+patch_margin_right = 25
+patch_margin_bottom = 25
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TitleBar" parent="VBoxContainer" instance=ExtResource("3_fstt7")]
+layout_mode = 2
+title = &"设置"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_nmrls")
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TabBar" type="TabBar" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+current_tab = 0
+tab_count = 4
+tab_0/title = "常规设置"
+tab_1/title = "互动设置"
+tab_2/title = "显示设置"
+tab_3/title = "关于"
+
+[node name="HSpacer" type="Control" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="TabPages" type="MarginContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+
+[node name="System" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+script = ExtResource("6_4o1i3")
+
+[node name="Title" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/System"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+theme_type_variation = &"LabelTitle"
+text = "系统设置"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/System"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+
+[node name="AutoStartCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/System"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "开机自启"
+
+[node name="PowerSaveCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/System"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "低功耗模式"
+
+[node name="AutoHideCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/System"]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "实验性功能"
+theme = ExtResource("1_nmrls")
+text = "全屏自动隐藏 *"
+
+[node name="Interact" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+script = ExtResource("7_4o1i3")
+
+[node name="Title" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Interact"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+theme_type_variation = &"LabelTitle"
+text = "互动设置"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Interact"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+
+[node name="PinCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Interact"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "置顶"
+
+[node name="StrollCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Interact"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "闲逛"
+
+[node name="MouseFollowCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Interact"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "鼠标跟随"
+
+[node name="Dock" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Interact"]
+layout_mode = 2
+
+[node name="DockCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Interact/Dock"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "边缘吸附"
+
+[node name="HSpacer" type="Control" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Interact/Dock"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Interact/Dock"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "吸附至边缘"
+popup/item_0/id = 0
+popup/item_1/text = "吸附至任务栏"
+popup/item_1/id = 1
+
+[node name="DropRemoveCheckBox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Interact"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "拖放文件移至回收站"
+
+[node name="Display" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+script = ExtResource("6_vl6pt")
+
+[node name="Title" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Display"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+theme_type_variation = &"LabelTitle"
+text = "显示设置"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Display"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+
+[node name="MaxFPSContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Display"]
+layout_mode = 2
+
+[node name="MaxFPSCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Display/MaxFPSContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "FPS限制"
+
+[node name="HSpacer" type="Control" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Display/MaxFPSContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Display/MaxFPSContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_nmrls")
+min_value = 30.0
+max_value = 200.0
+step = 10.0
+value = 30.0
+
+[node name="HSpacer2" type="Control" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Display/MaxFPSContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="Indicator" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Display/MaxFPSContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+theme_type_variation = &"SliderIndicatorLabel"
+text = "30 FPS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VsyncCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Display"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "垂直同步"
+
+[node name="MSAAContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Display"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MSAACheckBox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Display/MSAAContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("1_nmrls")
+text = "MSAA"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Display/MSAAContainer"]
+layout_mode = 2
+disabled = true
+selected = 0
+item_count = 3
+popup/item_0/text = "2x"
+popup/item_0/id = 0
+popup/item_1/text = "4x"
+popup/item_1/id = 1
+popup/item_2/text = "8x"
+popup/item_2/id = 2
+
+[node name="About" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+script = ExtResource("9_10ofc")
+update_message_box = ExtResource("9_4o1i3")
+
+[node name="Title" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/About"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+theme_type_variation = &"LabelTitle"
+text = "关于"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/About"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+
+[node name="VersionContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/About"]
+layout_mode = 2
+
+[node name="VersionIndicator" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/About/VersionContainer"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+theme_type_variation = &"LabelItem"
+text = "版本号    v0.1.0"
+
+[node name="HSpacer" type="Control" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/About/VersionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckUpdateButton" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/About/VersionContainer"]
+layout_mode = 2
+text = "检查更新"
+
+[node name="Copyrights" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.821788, 0.821789, 0.821787, 1)
+theme_override_fonts/font = ExtResource("6_fstt7")
+theme_override_font_sizes/font_size = 10
+text = "Dororo
+Copyrights © 2025 MelanTech. All rights Reserved."
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/About/VersionContainer/CheckUpdateButton" to="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/About" method="_on_check_update_button_pressed"]

@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://ixxkmbsfe02a"]
+
+[ext_resource type="Theme" uid="uid://djmv4w4gt1hm6" path="res://themes/settings.tres" id="1_ouw6s"]
+[ext_resource type="Texture2D" uid="uid://b1x0h5ke4edr4" path="res://images/icons/ui/settings/bg_sharp.png" id="2_8d6bk"]
+[ext_resource type="PackedScene" uid="uid://dkq4fyfppmif4" path="res://prefabs/ui/setting/title_bar.tscn" id="3_8d6bk"]
+[ext_resource type="Script" uid="uid://cbiv0r4582rcv" path="res://scripts/gd/ui/setting/update_message_box.gd" id="3_gdvt3"]
+
+[node name="UpdateMessageBox" type="Window"]
+initial_position = 2
+size = Vector2i(250, 180)
+exclusive = true
+borderless = true
+popup_window = true
+script = ExtResource("3_gdvt3")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ouw6s")
+texture = ExtResource("2_8d6bk")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleBar" parent="NinePatchRect/VBoxContainer" instance=ExtResource("3_8d6bk")]
+layout_mode = 2
+title = &"检查更新"
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Message" type="Label" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1_ouw6s")
+theme_type_variation = &"LabelItem"
+text = "检查更新中..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HSpacer" type="Control" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "百度网盘"
+popup/item_0/id = 0
+popup/item_1/text = "Github"
+popup/item_1/id = 1
+
+[node name="JumpButton" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "跳转"
+
+[node name="CancelButton" type="Button" parent="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "返回"
+
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/JumpButton" to="." method="_on_jump_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]

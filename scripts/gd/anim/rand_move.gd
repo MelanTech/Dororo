@@ -32,7 +32,7 @@ func _start_random_movement():
 	# 计算随机参数
 	var target_pos = _get_random_window_position()
 	var direction = _get_movement_direction(target_pos)
-	var speed = 200  # 像素/秒
+	var speed = 250  # 像素/秒
 	var distance = get_tree().root.get_window().position.distance_to(target_pos)
 	var duration = distance / speed
 	

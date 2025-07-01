@@ -1,22 +1,29 @@
 extends Node
 class_name ConfigManager
 
-const COMMON_SEC_NAME: String = "common"
-const WINDOW_SEC_NAME: String = "window"
+const WINDOW_SEC_NAME: StringName = &"window"
 
 @export var config_path:String = "res://config.ini"
 
 var _config = ConfigFile.new()
+var _sections: Dictionary[StringName, ConfigSection] = {}
 
 func _ready() -> void:
 	load_config()
+	
+func add_section(name: StringName) -> ConfigSection:
+	_sections[name] = ConfigSection.new(name, self)
+	return _sections[name]
+	
+func get_section(name: StringName) -> ConfigSection:
+	return _sections.get(name)
 	
 func load_config():
 	if not _config.load(config_path):
 		save_config()
 		
 func save_config():
-	_config.save(config_path)
+	return _config.save(config_path)
 		
 func set_value(section: String, key: String, value):
 	_config.set_value(section, key, value)
@@ -29,11 +36,4 @@ func get_window_config(key: String, default=null):
 
 func on_window_config_change(key:String, value):
 	_config.set_value(WINDOW_SEC_NAME, key, value)
-	save_config()
-
-func get_common_config(key: String, default=null):
-	return get_value(COMMON_SEC_NAME, key, default)
-
-func on_common_config_change(key:String, value):
-	_config.set_value(COMMON_SEC_NAME, key, value)
 	save_config()

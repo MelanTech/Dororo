@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Dororo"
+config/version="0.2.0.0"
 run/main_scene="uid://gfuvhyo1xjl4"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 run/max_fps=30
@@ -22,10 +23,11 @@ config/icon="uid://dbgr0uu8hus3f"
 [autoload]
 
 MouseTracker="*res://scripts/cs/MouseTracker.cs"
-Config="*res://scripts/gd/utils/config_manager.gd"
+Config="*res://scripts/gd/utils/config/config_manager.gd"
 WindowManager="*res://scripts/cs/WindowManager.cs"
 MouseDetection="*res://scripts/cs/MouseDetection.cs"
 AutoStarter="*res://scripts/cs/AutoStarter.cs"
+FileApi="*res://scripts/cs/FileAPI.cs"
 
 [display]
 
@@ -33,6 +35,7 @@ window/size/viewport_width=640
 window/size/viewport_height=640
 window/size/borderless=true
 window/size/transparent=true
+window/energy_saving/keep_screen_on=false
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"

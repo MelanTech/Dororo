@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cun7rhkorhmln"]
 
-[ext_resource type="Theme" uid="uid://71a443i30mmx" path="res://themes/main.tres" id="1_y8swo"]
+[ext_resource type="Theme" uid="uid://71a443i30mmx" path="res://themes/toolbar.tres" id="1_y8swo"]
 [ext_resource type="Texture2D" uid="uid://cquwbna43xqib" path="res://images/icons/ui/toolbar/bg.png" id="2_0m6uk"]
 [ext_resource type="Script" uid="uid://gson7aujqyrn" path="res://scripts/gd/ui/toolbar/toolbar.gd" id="3_xqmm3"]
 [ext_resource type="Script" uid="uid://yja0ady53gk4" path="res://scripts/gd/ui/toolbar/interact_menu.gd" id="4_88h4x"]
@@ -17,10 +17,10 @@ grow_horizontal = 2
 theme = ExtResource("1_y8swo")
 texture = ExtResource("2_0m6uk")
 region_rect = Rect2(0, 0, 106, 106)
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 script = ExtResource("3_xqmm3")
@@ -86,10 +86,10 @@ theme = ExtResource("1_y8swo")
 text = "面板"
 
 [node name="SettingButton" type="Button" parent="Buttons"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_y8swo")
+toggle_mode = true
 text = "设置"
 
 [node name="ExitButton" type="Button" parent="Buttons"]
@@ -98,7 +98,6 @@ size_flags_horizontal = 3
 theme = ExtResource("1_y8swo")
 text = "退出"
 
-[connection signal="toggled" from="Buttons/StickButton" to="." method="_on_stick_button_toggled"]
 [connection signal="toggled" from="Buttons/InteractButton" to="Buttons/InteractButton/InteractMenu" method="_on_interact_button_toggled"]
 [connection signal="toggled" from="Buttons/InteractButton/InteractMenu/VBoxContainer/StrollCheckbox" to="." method="_on_stroll_checkbox_toggled"]
 [connection signal="toggled" from="Buttons/InteractButton/InteractMenu/VBoxContainer/MouseFollowCheckbox" to="." method="_on_mouse_follow_checkbox_toggled"]
