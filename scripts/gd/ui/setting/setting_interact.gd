@@ -43,7 +43,7 @@ func _load_config():
 	
 	$StrollCheckbox.set_pressed_no_signal(_section.get_prop(&"stroll"))
 	get_node("/root/Node2D/GUI/Toolbar/Buttons/InteractButton/InteractMenu/VBoxContainer/StrollCheckbox").set_pressed_no_signal(_section.get_prop(&"stroll"))
-	get_node("/root/Node2D/GDCubismUserModel/Animation/EffectRandMove").enable = _section.get_prop(&"stroll")
+	get_node("/root/Node2D/GDCubismUserModel/Animation/EffectMove/EffectRandMove").enable = _section.get_prop(&"stroll")
 	
 	$MouseFollowCheckbox.set_pressed_no_signal(_section.get_prop(&"mouse_follow"))
 	get_node("/root/Node2D/GUI/Toolbar/Buttons/InteractButton/InteractMenu/VBoxContainer/MouseFollowCheckbox").set_pressed_no_signal(_section.get_prop(&"mouse_follow"))
@@ -62,7 +62,7 @@ func _update_pin(name, value):
 	get_tree().root.get_window().always_on_top = value
 	
 func _update_stroll(name, value):
-	get_node("/root/Node2D/GDCubismUserModel/Animation/EffectRandMove").enable = value
+	get_node("/root/Node2D/GDCubismUserModel/Animation/EffectMove/EffectRandMove").enable = value
 	
 func _update_mouse_follow(name, value):
 	get_node("/root/Node2D/GDCubismUserModel/Animation/EffectMouseFollow").enable = value

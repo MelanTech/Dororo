@@ -61,7 +61,7 @@ func _input(event: InputEvent) -> void:
 		# Window dragging
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
-				if enable_window_drag and not $GDCubismUserModel/Animation/EffectRandMove.is_moving:
+				if enable_window_drag and not $GDCubismUserModel/Animation/EffectMove.is_moving:
 					dragging = true
 					drag_start_mouse_pos = mouseTracker.GetMousePosition()
 					drag_start_window_pos = get_tree().root.position
@@ -147,12 +147,12 @@ func dock_to_edge(win_pos: Vector2i, thresh: float):
 	var thresh_pixel = int(win_size.x * thresh)
 	var dis_mouse_win_cpos = DisplayServer.mouse_get_position().distance_to(get_tree().root.position + win_size / 2)
 	
-	if  dis_mouse_win_cpos > win_size.x or dis_mouse_win_cpos > win_size.y:
-		# 当鼠标距离窗口超出窗口大小时不停靠，防止窗口移不出当前屏幕
+	if  dragging and (dis_mouse_win_cpos > win_size.x or dis_mouse_win_cpos > win_size.y):
+		# 当拖动时，鼠标距离窗口超出窗口大小时不停靠，防止窗口移不出当前屏幕
 		model.set_rotation_degrees(0)
 		model.position = Vector2.ZERO
 		model.Body_group = 1
-		docking = false
+		docking = true
 		docking_dir = DOCK_NONE
 		window_docking.emit(false, DOCK_NONE)
 		anim_controller.set_expression("Idle")

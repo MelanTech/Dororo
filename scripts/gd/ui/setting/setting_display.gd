@@ -34,11 +34,16 @@ func _bind_components():
 	
 func _load_config():
 	$MaxFPSContainer/MaxFPSCheckbox.set_pressed_no_signal(_section.get_prop(&"fps_limit"))
+	_update_fps_limit(&"fps_limit", _section.get_prop(&"fps_limit"))
 	$MaxFPSContainer/HSlider.set_value_no_signal(_section.get_prop(&"max_fps"))
+	_update_max_fps(&"max_fps", _section.get_prop(&"max_fps"))
 	$MaxFPSContainer/Indicator.set_text(_get_fps_label($MaxFPSContainer/HSlider.get_value()))
 	$VsyncCheckbox.set_pressed_no_signal(_section.get_prop(&"vsync"))
+	_update_vsync(&"vsync", _section.get_prop(&"vsync"))
 	$MSAAContainer/MSAACheckBox.set_pressed(_section.get_prop(&"msaa"))
+	_update_msaa(&"msaa", _section.get_prop(&"msaa"))
 	$MSAAContainer/OptionButton.select(_section.get_prop(&"msaa_level"))
+	_update_msaa_level(&"msaa_level", _section.get_prop(&"msaa_level"))
 	$MSAAContainer/OptionButton.disabled = not $MSAAContainer/MSAACheckBox.is_pressed()
 	
 func _update_fps_limit(name, value):

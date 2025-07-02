@@ -20,7 +20,7 @@ func _on_file_dropped(files: Array[String]):
 	if not enable:
 		return
 		
-	if $"../Animation/EffectRandMove".is_moving:
+	if $"../Animation/EffectMove".is_moving:
 		return
 	if not files.is_empty():
 		for file in files:
