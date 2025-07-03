@@ -23,7 +23,10 @@ func _mouse2vec():
 	var y_dis = mouse_pos.y - window_cpos.y
 	var x_vec = clampf(x_dis / (window_size.x / 2.), -1, 1)
 	var y_vec = clampf(y_dis / (window_size.y / 2.), -1, 1)
-	return Vector2(x_vec, -y_vec)
+	if not model.flip_h:
+		return Vector2(x_vec, -y_vec)
+	else:
+		return Vector2(-x_vec, -y_vec)
 		
 func _smooth(current_pos: Vector2, target_pos: Vector2, factor: float):
 	current_pos = (1 - factor) * current_pos + factor * target_pos

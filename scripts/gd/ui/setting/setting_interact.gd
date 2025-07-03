@@ -33,7 +33,7 @@ func _bind_components():
 	_section.set_prop(&"dock_type", 0)
 	_section.bind(&"dock_type").with(_update_dock_type).to_option_button($Dock/OptionButton)
 	
-	_section.set_prop(&"drop_remove", true)
+	_section.set_prop(&"drop_remove", false)
 	_section.bind(&"drop_remove").with(_update_drop_remove).to_check_box($DropRemoveCheckBox)
 	
 func _load_config():

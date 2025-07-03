@@ -217,13 +217,13 @@ ParamExp7 = 0.0
 AnimLine = 1.0
 AnimLoading1 = 0.0
 AnimLoading2 = 1.0
-ParamAngleX = 6.77479
-ParamAngleY = -4.61955
-ParamAngleZ = -0.827514
+ParamAngleX = 10.6203
+ParamAngleY = 5.97759
+ParamAngleZ = 0.46253
 ParamBodyAngleY = 0.0
 ParamBodyAngleZ = 0.0
 ParamStep = 0.0
-ParamBreath = 0.11567
+ParamBreath = 0.998003
 ParamBounceInput1 = 0.0
 ParamBounceInput2 = 0.0
 ParamBounceInput3 = 0.0
@@ -239,12 +239,12 @@ ParamMouthOpenY = 0.0
 ParamTongueOut = 0.0
 ParamMouthX = 0.0
 ParamMouthY = 0.0
-PhyAngleX = 0.00301264
-PhyAngleY = -0.0345558
-PhyHairX1 = 0.00702183
-PhyHairX2 = -0.00793909
-PhyHairY1 = -0.0690731
-PhyHairY2 = -0.00161301
+PhyAngleX = -0.0242496
+PhyAngleY = 0.0347502
+PhyHairX1 = -0.00895332
+PhyHairX2 = 0.0169072
+PhyHairY1 = 0.0861549
+PhyHairY2 = 0.00123717
 PhyIrisR1 = 0.0
 PhyIrisL1 = 0.0
 PhyIrisR2 = 0.0
@@ -330,6 +330,7 @@ root = NodePath("../..")
 
 [node name="DropRemover" type="Node" parent="GDCubismUserModel" node_paths=PackedStringArray("anim_controller")]
 script = ExtResource("28_2f3dj")
+enable = false
 anim_controller = NodePath("../Animation")
 
 [node name="Particles" type="Node2D" parent="."]
