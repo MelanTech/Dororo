@@ -7,7 +7,7 @@ extends Node
 		
 @export var move_effect: MoveEffect
 @export var anim_contorller: AnimationController
-@export var move_interval: int = 3
+@export var move_interval: int = 10
 
 var timer: Timer = Timer.new()
 var move_tween: Tween

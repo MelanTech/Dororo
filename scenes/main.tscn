@@ -217,13 +217,13 @@ ParamExp7 = 0.0
 AnimLine = 1.0
 AnimLoading1 = 0.0
 AnimLoading2 = 1.0
-ParamAngleX = 1.71723
-ParamAngleY = 1.29552
-ParamAngleZ = 1.29759
+ParamAngleX = 6.77479
+ParamAngleY = -4.61955
+ParamAngleZ = -0.827514
 ParamBodyAngleY = 0.0
 ParamBodyAngleZ = 0.0
 ParamStep = 0.0
-ParamBreath = 0.531509
+ParamBreath = 0.11567
 ParamBounceInput1 = 0.0
 ParamBounceInput2 = 0.0
 ParamBounceInput3 = 0.0
@@ -239,12 +239,12 @@ ParamMouthOpenY = 0.0
 ParamTongueOut = 0.0
 ParamMouthX = 0.0
 ParamMouthY = 0.0
-PhyAngleX = -0.00141293
-PhyAngleY = 0.000627144
-PhyHairX1 = -0.00113948
-PhyHairX2 = 0.00414548
-PhyHairY1 = 0.00621344
-PhyHairY2 = -0.00270001
+PhyAngleX = 0.00301264
+PhyAngleY = -0.0345558
+PhyHairX1 = 0.00702183
+PhyHairX2 = -0.00793909
+PhyHairY1 = -0.0690731
+PhyHairY2 = -0.00161301
 PhyIrisR1 = 0.0
 PhyIrisL1 = 0.0
 PhyIrisR2 = 0.0
@@ -278,11 +278,11 @@ script = ExtResource("5_yq6so")
 move_effect = NodePath("..")
 anim_contorller = NodePath("../..")
 
-[node name="EffectMouseFollow" type="Node" parent="GDCubismUserModel/Animation" node_paths=PackedStringArray("model", "controller")]
+[node name="EffectMouseFollow" type="Node" parent="GDCubismUserModel/Animation" node_paths=PackedStringArray("model", "anim_controller")]
 script = ExtResource("4_yc10j")
 model = NodePath("../..")
-controller = NodePath("..")
-smooth_factor = 0.2
+anim_controller = NodePath("..")
+smooth_factor = 0.1
 
 [node name="EffectEyeBlink" type="Node" parent="GDCubismUserModel/Animation" node_paths=PackedStringArray("controller")]
 script = ExtResource("4_0ld40")
