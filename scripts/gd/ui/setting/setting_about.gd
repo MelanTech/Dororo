@@ -10,5 +10,5 @@ func _ready() -> void:
 func _on_check_update_button_pressed() -> void:
 	var scene = ResourceLoader.load(update_message_box.get_path())
 	scene = scene.instantiate()
-	if not find_child(scene.get_name()):
+	if not has_node("./{0}".format([scene.name])):
 		add_child(scene)

@@ -30,7 +30,7 @@ func _bind_components():
 	_section.bind(&"dock").with(_update_dock).to_check_box($Dock/DockCheckbox)
 	_section.bind(&"dock").using(InvertBoolBindingConverter.new()).to($Dock/OptionButton, &"disabled")
 	
-	_section.set_prop(&"dock_type", 0)
+	_section.set_prop(&"dock_type", 1)
 	_section.bind(&"dock_type").with(_update_dock_type).to_option_button($Dock/OptionButton)
 	
 	_section.set_prop(&"drop_remove", false)

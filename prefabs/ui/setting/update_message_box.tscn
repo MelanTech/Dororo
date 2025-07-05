@@ -6,11 +6,10 @@
 [ext_resource type="Script" uid="uid://cbiv0r4582rcv" path="res://scripts/gd/ui/setting/update_message_box.gd" id="3_gdvt3"]
 
 [node name="UpdateMessageBox" type="Window"]
+title = "检查更新"
 initial_position = 2
 size = Vector2i(250, 180)
-exclusive = true
 borderless = true
-popup_window = true
 script = ExtResource("3_gdvt3")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
