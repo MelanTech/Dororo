@@ -5,7 +5,7 @@ extends Node2D
 @export var model: GDCubismUserModel
 @export var anim_controller: AnimationController
 @export var dock_thresh:float = 0.3
-@export var dock_pop_offset:int = 380
+@export var dock_pop_offset:int = 110
 @export var dock_pop_expression_reset_time:float = 30
 @export var dock_to_taskbar:bool = false
 
@@ -17,7 +17,8 @@ const DOCK_RIGHT = 1
 const DOCK_TOP = 2
 const DOCK_BOTTOM = 3
 const DOCK_NONE = 4
-const DOCK_POS_OFFSET = 1270
+const DOCK_POS_OFFSET = 380
+
 
 @onready var BASE_WINDOW_WIDTH = get_tree().root.get_size().x
 @onready var BASE_WINDOW_HEIGHT = get_tree().root.get_size().y
@@ -53,7 +54,7 @@ func _ready() -> void:
 	add_child(docking_time_counter)
 	mouseDetection.connect("MouseEntered", docking_time_counter.increase)
 	
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	dock_pop()
 
 func _input(event: InputEvent) -> void:

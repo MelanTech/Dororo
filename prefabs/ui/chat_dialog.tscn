@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://3m0agg6dl5dn"]
+
+[ext_resource type="Texture2D" uid="uid://dwkn12e4o0ay6" path="res://images/icons/ui/chat/dialog.png" id="1_cfod2"]
+[ext_resource type="Texture2D" uid="uid://cbtpw40n1dfxa" path="res://images/icons/ui/chat/close.png" id="2_7hnh1"]
+[ext_resource type="Theme" uid="uid://dlebr0g8d5lm8" path="res://themes/chat_dialog.tres" id="2_ovuhr"]
+
+[node name="ChatDialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_cfod2")
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_ovuhr")
+
+[node name="Label" type="Label" parent="MarginContainer/NinePatchRect/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ovuhr")
+autowrap_mode = 3
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 21.0
+grow_horizontal = 0
+theme = ExtResource("2_ovuhr")
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+icon = ExtResource("2_7hnh1")
+flat = true

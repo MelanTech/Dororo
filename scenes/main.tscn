@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://gfuvhyo1xjl4"]
+[gd_scene load_steps=44 format=3 uid="uid://gfuvhyo1xjl4"]
 
 [ext_resource type="Script" uid="uid://bq5jct0umnoci" path="res://scripts/gd/interact/window.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://c2wvqwfnqa3u2" path="res://scripts/gd/attributes/model.gd" id="2_o6xl0"]
@@ -26,9 +26,14 @@
 [ext_resource type="Script" uid="uid://dq47pxgsd8bqq" path="res://scripts/gd/interact/hit_area_handler.gd" id="21_pm3ni"]
 [ext_resource type="Script" uid="uid://dp1nh8pm67yer" path="res://scripts/gd/ui/gui.gd" id="24_2wyq8"]
 [ext_resource type="PackedScene" uid="uid://cun7rhkorhmln" path="res://prefabs/ui/tool_bar.tscn" id="25_og1vs"]
+[ext_resource type="Script" uid="uid://xpg4kgx0vdym" path="res://addons/gd_chathub/openai_chat_client.gd" id="26_dgi5k"]
 [ext_resource type="PackedScene" uid="uid://c7crjehg0e81v" path="res://prefabs/ui/setting/setting.tscn" id="26_vxglm"]
 [ext_resource type="Script" uid="uid://ulsqxff78cp0" path="res://scripts/gd/ui/setting/setting_window.gd" id="27_2f3dj"]
+[ext_resource type="Script" uid="uid://ctahbfjyc2lpd" path="res://addons/gd_chathub/context_manager.gd" id="27_j8jky"]
 [ext_resource type="Script" uid="uid://0ovcydbovbs8" path="res://scripts/gd/interact/drop_remove.gd" id="28_2f3dj"]
+[ext_resource type="PackedScene" uid="uid://belewrb1nqyk8" path="res://prefabs/ui/chat_bar.tscn" id="28_fv21b"]
+[ext_resource type="Script" uid="uid://chga2u23wjved" path="res://scripts/gd/ui/chat_dialog/chat_dialog_window.gd" id="31_qkpxi"]
+[ext_resource type="PackedScene" uid="uid://3m0agg6dl5dn" path="res://prefabs/ui/chat_dialog.tscn" id="31_tel4y"]
 
 [sub_resource type="Animation" id="Animation_jscy8"]
 length = 0.001
@@ -156,8 +161,8 @@ particle_flag_disable_z = true
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 1.0
-emission_ring_radius = 600.0
-emission_ring_inner_radius = 400.0
+emission_ring_radius = 180.0
+emission_ring_inner_radius = 120.0
 emission_ring_cone_angle = 90.0
 angle_min = 1.07288e-05
 angle_max = 1.07288e-05
@@ -166,7 +171,7 @@ radial_accel_min = -2.23517e-06
 radial_accel_max = -2.23517e-06
 tangential_accel_min = -2.23517e-06
 tangential_accel_max = -2.23517e-06
-scale_max = 3.0
+scale_min = 0.3
 alpha_curve = SubResource("CurveTexture_tipki")
 
 [sub_resource type="Curve" id="Curve_85g3d"]
@@ -194,7 +199,6 @@ model = NodePath("GDCubismUserModel")
 anim_controller = NodePath("GDCubismUserModel/Animation")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.3, 0.3)
 
 [node name="GDCubismUserModel" type="GDCubismUserModel" parent="."]
 assets = "res://models/Doro/Doro.model3.json"
@@ -217,13 +221,13 @@ ParamExp7 = 0.0
 AnimLine = 1.0
 AnimLoading1 = 0.0
 AnimLoading2 = 1.0
-ParamAngleX = -6.29627
-ParamAngleY = 4.34126
-ParamAngleZ = 0.190622
+ParamAngleX = -12.9825
+ParamAngleY = 4.68255
+ParamAngleZ = -2.14526
 ParamBodyAngleY = 0.0
 ParamBodyAngleZ = 0.0
 ParamStep = 0.0
-ParamBreath = 0.806237
+ParamBreath = 0.847561
 ParamBounceInput1 = 0.0
 ParamBounceInput2 = 0.0
 ParamBounceInput3 = 0.0
@@ -239,12 +243,12 @@ ParamMouthOpenY = 0.0
 ParamTongueOut = 0.0
 ParamMouthX = 0.0
 ParamMouthY = 0.0
-PhyAngleX = 0.00896834
-PhyAngleY = 0.0279629
-PhyHairX1 = 0.0219727
-PhyHairX2 = -0.00825427
-PhyHairY1 = 0.0482432
-PhyHairY2 = -0.00357633
+PhyAngleX = -0.0110823
+PhyAngleY = 0.0305164
+PhyHairX1 = -0.0198458
+PhyHairX2 = -0.0034328
+PhyHairY1 = 0.0648007
+PhyHairY2 = 0.00237741
 PhyIrisR1 = 0.0
 PhyIrisL1 = 0.0
 PhyIrisR2 = 0.0
@@ -260,6 +264,7 @@ Face_group = 1.0
 Bow_group = 1.0
 Hair_back_group = 1.0
 Ribbon_group = 1.0
+scale = Vector2(0.3, 0.3)
 script = ExtResource("2_o6xl0")
 
 [node name="Animation" type="Node" parent="GDCubismUserModel" node_paths=PackedStringArray("anim_tree")]
@@ -369,23 +374,50 @@ metadata/_edit_lock_ = true
 
 [node name="StatusIndicator" parent="." instance=ExtResource("4_jyhfs")]
 
+[node name="OpenAIChatClient" type="Node" parent="."]
+script = ExtResource("26_dgi5k")
+_url = &"http://127.0.0.1"
+_model_name = &"qwen3:0.6b"
+_prompt = "设定：姓名：Doro类别：狗狗性格：内向傲娇爱吃的食物：喜欢吃很多零食，但是最喜欢欧润吉（橘子），不会主动说。发型：紫色眼睛，粉色丸子头，紫色发带语法要求：口语化：替换生硬、专业词汇，拆分复杂长句情感化：注入情感，情绪基调为 [平和/真诚 ]个人化：加入第一人称或第二人称，增强互动感真实化：避免过于夸张、虚假的表达简洁化：不要使用过长的语句回答，尽量使用陈述句人称：你在必要的时候称呼用户为“人” /no_think"
+
+[node name="ContextManager" type="Node" parent="OpenAIChatClient"]
+script = ExtResource("27_j8jky")
+metadata/_custom_type_script = "uid://ctahbfjyc2lpd"
+
 [node name="GUI" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("24_2wyq8")
+metadata/_edit_use_anchors_ = true
 
 [node name="Toolbar" parent="GUI" instance=ExtResource("25_og1vs")]
-layout_mode = 1
+layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
-offset_left = -635.0
-offset_top = 741.0
-offset_right = 670.0
-offset_bottom = 971.0
+offset_left = -240.0
+offset_top = 220.0
+offset_right = 260.0
+offset_bottom = 290.0
 grow_horizontal = 1
-region_rect = Rect2(0, 0, 100, 100)
+region_rect = Rect2(0, 0, 200, 200)
+metadata/_edit_use_anchors_ = true
+
+[node name="Chatbar" parent="GUI" node_paths=PackedStringArray("chat_client", "context_manager", "chat_dialog") instance=ExtResource("28_fv21b")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = -240.0
+offset_top = 220.0
+offset_right = 260.0
+offset_bottom = 290.0
+grow_horizontal = 1
+chat_client = NodePath("../../OpenAIChatClient")
+context_manager = NodePath("../../OpenAIChatClient/ContextManager")
+chat_dialog = NodePath("../ChatDialog")
 
 [node name="Settings" type="Window" parent="GUI"]
 title = "设置"
@@ -397,8 +429,22 @@ min_size = Vector2i(450, 350)
 script = ExtResource("27_2f3dj")
 
 [node name="NinePatchRect" parent="GUI/Settings" instance=ExtResource("26_vxglm")]
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="ChatDialog" type="Window" parent="GUI"]
+transparent_bg = true
+visible = false
+borderless = true
+transparent = true
+script = ExtResource("31_qkpxi")
+y_offset = 80
+x_offset = -40
+
+[node name="ChatDialog" parent="GUI/ChatDialog" instance=ExtResource("31_tel4y")]
 
 [connection signal="window_docking" from="." to="GUI" method="_on_window_docking"]
+[connection signal="window_docking" from="." to="GUI/ChatDialog" method="_on_window_docking"]
 [connection signal="window_middle_click" from="." to="GUI" method="_on_window_middle_click"]
 [connection signal="hit" from="GDCubismUserModel/HitAreaHandler" to="GDCubismUserModel/Animation/EffectTouch" method="_on_hit_area"]
 [connection signal="hit_area_entered" from="GDCubismUserModel/HitAreaHandler" to="GDCubismUserModel/HitAreaHandler" method="_on_hit_area_entered"]

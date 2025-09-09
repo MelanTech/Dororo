@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7crjehg0e81v"]
+[gd_scene load_steps=11 format=3 uid="uid://c7crjehg0e81v"]
 
 [ext_resource type="Texture2D" uid="uid://b1x0h5ke4edr4" path="res://images/icons/ui/settings/bg_sharp.png" id="1_044ml"]
 [ext_resource type="Theme" uid="uid://djmv4w4gt1hm6" path="res://themes/settings.tres" id="1_nmrls"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://cxesm3f1vqnpc" path="res://fonts/MSYH.TTC" id="6_fstt7"]
 [ext_resource type="Script" uid="uid://eok0mgqqko80" path="res://scripts/gd/ui/setting/setting_display.gd" id="6_vl6pt"]
 [ext_resource type="Script" uid="uid://ckjlbq2w68m2k" path="res://scripts/gd/ui/setting/setting_interact.gd" id="7_4o1i3"]
+[ext_resource type="Script" uid="uid://bl1mq2p18j663" path="res://scripts/gd/ui/setting/setting_chat.gd" id="7_63ui7"]
 [ext_resource type="PackedScene" uid="uid://ixxkmbsfe02a" path="res://prefabs/ui/setting/update_message_box.tscn" id="9_4o1i3"]
 [ext_resource type="Script" uid="uid://dtydvg1uq05r6" path="res://scripts/gd/ui/setting/setting_about.gd" id="9_10ofc"]
 
@@ -14,6 +15,8 @@
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -190.0
+offset_bottom = -290.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_nmrls")
@@ -31,7 +34,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
@@ -88,7 +90,7 @@ theme_override_constants/separation = 15
 [node name="System" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 2
+theme = ExtResource("1_nmrls")
 script = ExtResource("6_4o1i3")
 
 [node name="Title" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/System"]
@@ -123,7 +125,7 @@ text = "全屏自动隐藏 *"
 [node name="Interact" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 2
+theme = ExtResource("1_nmrls")
 script = ExtResource("7_4o1i3")
 
 [node name="Title" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Interact"]
@@ -185,7 +187,7 @@ text = "拖放文件移至回收站"
 [node name="Display" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 2
+theme = ExtResource("1_nmrls")
 script = ExtResource("6_vl6pt")
 
 [node name="Title" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Display"]
@@ -263,10 +265,227 @@ popup/item_1/id = 1
 popup/item_2/text = "8x"
 popup/item_2/id = 2
 
+[node name="Chat" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+script = ExtResource("7_63ui7")
+
+[node name="Title" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+theme_type_variation = &"LabelTitle"
+text = "聊天设置"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+
+[node name="API" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat"]
+layout_mode = 2
+
+[node name="APILabel" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/API"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+theme_type_variation = &"LabelItem"
+text = "API地址"
+
+[node name="HSpacer" type="Control" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/API"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/API"]
+custom_minimum_size = Vector2(150, 25)
+layout_mode = 2
+placeholder_text = "URL"
+caret_blink = true
+
+[node name="Route" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Route"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+theme_type_variation = &"LabelItem"
+text = "API路径"
+
+[node name="HSpacer" type="Control" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Route"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Route"]
+custom_minimum_size = Vector2(150, 25)
+layout_mode = 2
+placeholder_text = "API路径"
+caret_blink = true
+
+[node name="Port" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Port"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+theme_type_variation = &"LabelItem"
+text = "API端口"
+
+[node name="HSpacer" type="Control" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Port"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Port"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+min_value = -1.0
+max_value = 65535.0
+rounded = true
+
+[node name="Key" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Key"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+theme_type_variation = &"LabelItem"
+text = "API Key"
+
+[node name="HSpacer" type="Control" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Key"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Key"]
+custom_minimum_size = Vector2(150, 25)
+layout_mode = 2
+placeholder_text = "API Key"
+caret_blink = true
+secret = true
+
+[node name="Name" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Name"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+theme_type_variation = &"LabelItem"
+text = "模型名称"
+
+[node name="HSpacer" type="Control" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Name"]
+custom_minimum_size = Vector2(150, 25)
+layout_mode = 2
+placeholder_text = "模型名称"
+caret_blink = true
+
+[node name="Prompt" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Prompt"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme = ExtResource("1_nmrls")
+theme_type_variation = &"LabelItem"
+text = "Prompt设置"
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Prompt"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_force_pass_scroll_events = false
+placeholder_text = "输入Prompt"
+context_menu_enabled = false
+emoji_menu_enabled = false
+wrap_mode = 1
+scroll_smooth = true
+caret_blink = true
+
+[node name="ThinkingCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "深度思考"
+
+[node name="StreamCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "流式输出"
+
+[node name="Temperature" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat"]
+layout_mode = 2
+
+[node name="TemperatureCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Temperature"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "温度系数"
+
+[node name="HSpacer" type="Control" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Temperature"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/Temperature"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+max_value = 1.0
+step = 0.01
+value = 0.7
+editable = false
+
+[node name="MaxToken" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat"]
+layout_mode = 2
+
+[node name="MaxTokenCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/MaxToken"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "最大Token数量"
+
+[node name="HSpacer" type="Control" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/MaxToken"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/MaxToken"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+max_value = 10000.0
+value = 100.0
+rounded = true
+allow_greater = true
+editable = false
+
+[node name="MaxContext" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat"]
+layout_mode = 2
+
+[node name="MaxContextCheckbox" type="CheckBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/MaxContext"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_nmrls")
+text = "最大上下文数量"
+
+[node name="HSpacer" type="Control" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/MaxContext"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer/Chat/MaxContext"]
+layout_mode = 2
+theme = ExtResource("1_nmrls")
+max_value = 10000.0
+value = 5.0
+rounded = true
+allow_greater = true
+editable = false
+
 [node name="About" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/TabPages/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 2
+theme = ExtResource("1_nmrls")
 script = ExtResource("9_10ofc")
 update_message_box = ExtResource("9_4o1i3")
 

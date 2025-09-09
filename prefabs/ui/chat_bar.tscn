@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://belewrb1nqyk8"]
+
+[ext_resource type="Texture2D" uid="uid://cquwbna43xqib" path="res://images/icons/ui/toolbar/bg.png" id="1_8555v"]
+[ext_resource type="Script" uid="uid://ch8gxey7u6rfi" path="res://scripts/gd/ui/chatbar/chatbar.gd" id="2_3isnr"]
+[ext_resource type="Theme" uid="uid://71a443i30mmx" path="res://themes/toolbar.tres" id="2_l5u1h"]
+[ext_resource type="Texture2D" uid="uid://belaktxterhfx" path="res://images/icons/ui/chat/send.png" id="4_apdq1"]
+[ext_resource type="Texture2D" uid="uid://byle5xrhpk6pl" path="res://images/icons/ui/chat/chat_window.png" id="4_yrg7x"]
+[ext_resource type="Texture2D" uid="uid://cggr24klb7t40" path="res://images/icons/ui/chat/clear.png" id="5_yrg7x"]
+[ext_resource type="Texture2D" uid="uid://ddx5qc8ftr32u" path="res://images/icons/ui/chat/stop.png" id="6_dduo8"]
+[ext_resource type="Texture2D" uid="uid://dwwpm83nagpcn" path="res://images/icons/ui/chat/back.png" id="7_hp1p8"]
+
+[node name="Chatbar" type="NinePatchRect" node_paths=PackedStringArray("line_edit", "send_btn", "stop_btn")]
+anchors_preset = -1
+anchor_left = 0.225
+anchor_right = 0.5
+offset_left = -144.0
+offset_right = 100.0
+offset_bottom = 60.0
+grow_horizontal = 2
+texture = ExtResource("1_8555v")
+region_rect = Rect2(0, 0, 200, 200)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+script = ExtResource("2_3isnr")
+line_edit = NodePath("MarginContainer/HBoxContainer/LineEdit")
+send_btn = NodePath("MarginContainer/HBoxContainer/SendButton")
+stop_btn = NodePath("MarginContainer/HBoxContainer/StopButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="ChatWindowButton" type="Button" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+tooltip_text = "打开聊天窗口"
+theme = ExtResource("2_l5u1h")
+theme_override_constants/icon_max_width = 28
+icon = ExtResource("4_yrg7x")
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_l5u1h")
+placeholder_text = "输入文本以聊天~"
+keep_editing_on_text_submit = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+middle_mouse_paste_enabled = false
+caret_blink = true
+
+[node name="SendButton" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "发送"
+theme = ExtResource("2_l5u1h")
+icon = ExtResource("4_apdq1")
+
+[node name="StopButton" type="Button" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+tooltip_text = "停止"
+theme = ExtResource("2_l5u1h")
+icon = ExtResource("6_dduo8")
+
+[node name="ClearButton" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "清除上下文"
+theme = ExtResource("2_l5u1h")
+icon = ExtResource("5_yrg7x")
+
+[node name="BackButton" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "返回"
+theme = ExtResource("2_l5u1h")
+icon = ExtResource("7_hp1p8")
+
+[connection signal="text_submitted" from="MarginContainer/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/SendButton" to="." method="_on_send_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/StopButton" to="." method="_on_stop_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/ClearButton" to="." method="_on_clear_button_pressed"]

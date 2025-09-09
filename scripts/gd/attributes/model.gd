@@ -5,7 +5,8 @@ extends Node2D
 		return flip_h
 	set(flip):
 		flip_h = flip
+		
 		if flip_h:
-			set_scale(Vector2(-1, 1))
+			set_scale(Vector2(-0.3, 0.3))
 		else:
-			set_scale(Vector2(1, 1))
+			set_scale(Vector2(0.3, 0.3))

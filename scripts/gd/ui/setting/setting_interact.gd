@@ -5,6 +5,8 @@ extends Node
 var _section: ConfigSection 
 var _app_name = ProjectSettings.get_setting("application/config/name")
 
+@onready var _chat_dialog: Window = get_node("/root/Node2D/GUI/ChatDialog")
+
 func _ready() -> void:
 	_section = _config.add_section(&"interact")
 	
@@ -40,6 +42,7 @@ func _load_config():
 	$PinCheckbox.set_pressed_no_signal(_section.get_prop(&"pin"))
 	get_node("/root/Node2D/GUI/Toolbar/Buttons/StickButton").set_pressed_no_signal(_section.get_prop(&"pin"))
 	get_tree().root.get_window().always_on_top = _section.get_prop(&"pin")
+	_chat_dialog.always_on_top = _section.get_prop(&"pin")
 	
 	$StrollCheckbox.set_pressed_no_signal(_section.get_prop(&"stroll"))
 	get_node("/root/Node2D/GUI/Toolbar/Buttons/InteractButton/InteractMenu/VBoxContainer/StrollCheckbox").set_pressed_no_signal(_section.get_prop(&"stroll"))
@@ -60,6 +63,7 @@ func _load_config():
 	
 func _update_pin(name, value):
 	get_tree().root.get_window().always_on_top = value
+	_chat_dialog.always_on_top = value
 	
 func _update_stroll(name, value):
 	get_node("/root/Node2D/GDCubismUserModel/Animation/EffectMove/EffectRandMove").enable = value

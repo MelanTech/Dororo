@@ -1,0 +1,54 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://dlebr0g8d5lm8"]
+
+[ext_resource type="FontFile" uid="uid://dlfas555fcata" path="res://fonts/MSYHBD.TTC" id="1_0a3ve"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0a3ve"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4vsvb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tte13"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vovif"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fux2d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0a3ve"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_fux2d"]
+color = Color(0.941176, 0.709804, 0.803922, 1)
+thickness = 3
+vertical = true
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_4vsvb"]
+color = Color(0.980392, 0.545098, 0.737255, 1)
+thickness = 3
+vertical = true
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_tte13"]
+color = Color(0.980392, 0.545098, 0.737255, 1)
+thickness = 3
+vertical = true
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0a3ve"]
+color = Color(0.882353, 0.882353, 0.882353, 1)
+thickness = 3
+vertical = true
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxEmpty_0a3ve")
+Button/styles/hover = SubResource("StyleBoxEmpty_4vsvb")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_tte13")
+Button/styles/normal = SubResource("StyleBoxEmpty_vovif")
+Button/styles/pressed = SubResource("StyleBoxEmpty_fux2d")
+Label/colors/font_color = Color(0.643137, 0.643137, 0.643137, 1)
+Label/constants/line_spacing = 8
+Label/font_sizes/font_size = 12
+Label/fonts/font = ExtResource("1_0a3ve")
+Label/styles/normal = SubResource("StyleBoxFlat_0a3ve")
+VScrollBar/styles/grabber = SubResource("StyleBoxLine_fux2d")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxLine_4vsvb")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxLine_tte13")
+VScrollBar/styles/scroll = SubResource("StyleBoxLine_0a3ve")

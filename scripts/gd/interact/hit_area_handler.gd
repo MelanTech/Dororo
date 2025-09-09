@@ -24,6 +24,7 @@ func _process(delta):
 		set_target(recalc_mouse_position(local_pos))
 		
 func recalc_mouse_position(position):
+	position = position * model.get_scale()
 	if model.flip_h:
 		position.x = -position.x
 	

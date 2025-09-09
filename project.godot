@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dororo"
-config/version="0.2.0.0"
+config/version="0.3.0.0"
 run/main_scene="uid://gfuvhyo1xjl4"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 run/max_fps=30
@@ -56,7 +56,6 @@ folder_colors={
 
 2d/run_on_separate_thread=true
 3d/run_on_separate_thread=true
-common/physics_ticks_per_second=30
 
 [rendering]
 

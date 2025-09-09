@@ -9,10 +9,9 @@
 anchors_preset = -1
 anchor_left = 0.225
 anchor_right = 0.5
-offset_left = -625.0
-offset_top = 750.0
-offset_right = 680.0
-offset_bottom = 980.0
+offset_left = -144.0
+offset_right = 180.0
+offset_bottom = 70.0
 grow_horizontal = 2
 theme = ExtResource("1_y8swo")
 texture = ExtResource("2_0m6uk")
@@ -52,11 +51,10 @@ visible = false
 z_index = 4096
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -288.5
-offset_top = -432.0
-offset_right = 288.5
+anchor_right = 1.0
+offset_left = -60.0
+offset_top = -150.0
+offset_right = 60.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_y8swo")
@@ -72,10 +70,12 @@ grow_vertical = 2
 
 [node name="StrollCheckbox" type="CheckBox" parent="Buttons/InteractButton/InteractMenu/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_y8swo")
 text = "闲逛"
 
 [node name="MouseFollowCheckbox" type="CheckBox" parent="Buttons/InteractButton/InteractMenu/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_y8swo")
 text = "鼠标跟随"
 
 [node name="StatusButton" type="Button" parent="Buttons"]
@@ -84,6 +84,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_y8swo")
 text = "面板"
+
+[node name="ChatButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_y8swo")
+text = "聊天"
 
 [node name="SettingButton" type="Button" parent="Buttons"]
 layout_mode = 2
