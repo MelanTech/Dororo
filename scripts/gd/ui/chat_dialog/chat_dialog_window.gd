@@ -1,5 +1,7 @@
 extends Window
 
+@export var window: Node2D
+
 @export var y_offset: int = 0
 @export var x_offset: int = 0
 
@@ -23,6 +25,8 @@ func _process(delta: float) -> void:
 		main_window_pos.y = main_window_pos.y - y_offset
 		position = main_window_pos
 		size.x = main_window_size.x + 2 * x_offset
+		size.y = 100 * (window.window_scale + 0.5)
+		content_scale_factor = window.window_scale + 0.5
 
 func append_text(text: String):
 	#_buffer += text
