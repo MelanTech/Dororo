@@ -35,7 +35,7 @@ Dororo是一款基于Godot的开源桌面宠物项目，其灵感来源于游戏
 </div>
 
 <div align="center">
-<img src="./assets/resize.gif" width="320">
+<img src="./assets/stroll.gif" width="320">
 <p style="text-align: center;">鼠标右键：抚摸</p>
 </div>
 
