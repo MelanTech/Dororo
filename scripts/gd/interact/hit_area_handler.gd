@@ -25,9 +25,7 @@ func _process(delta):
 		
 func recalc_mouse_position(position):
 	position = position * model.get_scale()
-	if model.flip_h:
-		position.x = -position.x
-	
+
 	if canvas_info.is_empty() != true:
 		var vct_viewport_size = Vector2(root.get_viewport_rect().size)
 		var scale: float = vct_viewport_size.y / max(canvas_info.size_in_pixels.x, canvas_info.size_in_pixels.y)
@@ -35,7 +33,7 @@ func recalc_mouse_position(position):
 		position /= Vector2(scale, scale)
 		if model.flip_h:
 			position.x = -position.x
-		
+
 	return position
 
 func _on_hit_area_entered(model: GDCubismUserModel, id: String) -> void:
